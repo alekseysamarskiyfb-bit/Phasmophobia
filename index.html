@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Phasmo Помощник</title>
+<style>
+:root{--bg:#f1f2f6;--cd:#fff;--tx:#16171c;--mu:#6a6e7b;--bd:#dcdee5;--ok:#13a05a;--no:#d83a3a;--ac:#6a4bd6;--wn:#c98a00;--c1:#13a05a;--c2:#ec7b1c;--c3:#2f7de1;--c4:#6a4bd6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0d11;--cd:#171921;--tx:#eceef3;--mu:#8f94a3;--bd:#272a35;--ok:#2fd27f;--no:#ff5c5c;--ac:#9a82ff;--wn:#f0b429;--c1:#2fd27f;--c2:#ff9a44;--c3:#5b9bff;--c4:#a18bff}}
+:root[data-theme="dark"]{--bg:#0c0d11;--cd:#171921;--tx:#eceef3;--mu:#8f94a3;--bd:#272a35;--ok:#2fd27f;--no:#ff5c5c;--ac:#9a82ff;--wn:#f0b429;--c1:#2fd27f;--c2:#ff9a44;--c3:#5b9bff;--c4:#a18bff}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:84px}
+button{font:inherit;color:inherit;cursor:pointer}
+.w{max-width:820px;margin:0 auto;padding:0 10px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--bd)}
+.top{display:flex;align-items:center;gap:6px;margin-bottom:7px}
+.top h1{font-size:16px;margin:0;flex:1}
+.pill{background:var(--ac);color:#fff;border-radius:99px;padding:3px 11px;font-weight:800;font-size:14px}
+.sm{background:var(--cd);border:1px solid var(--bd);border-radius:9px;padding:6px 10px;font-size:13px;font-weight:600}
+.ev{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.eb{position:relative;background:var(--cd);border:2px solid var(--bd);border-radius:11px;padding:6px 0 5px;display:flex;flex-direction:column;align-items:center;gap:1px;min-height:54px}
+.eb i{font-style:normal;font-size:23px;line-height:1.1}.eb b{font-size:10px;font-weight:700}
+.eb u{position:absolute;top:0;right:4px;text-decoration:none;font-size:13px;font-weight:900}
+.eb.f{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 20%,var(--cd))}.eb.f u{color:var(--ok)}
+.eb.r{border-color:var(--no);background:color-mix(in srgb,var(--no) 14%,var(--cd));opacity:.7}.eb.r u{color:var(--no)}.eb.r b{text-decoration:line-through}
+/* steps */
+.st{background:var(--cd);border:1px solid var(--bd);border-left:5px solid var(--c);border-radius:14px;padding:12px;margin:12px 0}
+.sh{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.sh .n{width:26px;height:26px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;flex:none}
+.sh b{font-size:16px}.sh small{display:block;color:var(--mu);font-size:12px;font-weight:400}
+.v{border-radius:14px;padding:12px;margin:12px 0;border:2px solid var(--ac);background:color-mix(in srgb,var(--ac) 9%,var(--cd))}
+.v.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--cd))}.v.bad{border-color:var(--no);background:color-mix(in srgb,var(--no) 10%,var(--cd))}
+.v .big{font-size:20px;font-weight:800}
+.nm{display:inline-block;background:var(--cd);border:1px solid var(--bd);border-radius:99px;padding:2px 10px;margin:4px 4px 0 0;font-size:13px;font-weight:600}
+.nx{border-left:5px solid var(--c2)}
+.sg{display:flex;gap:6px;align-items:center;padding:8px 0;border-top:1px solid var(--bd)}.sg:first-of-type{border-top:0}
+.sg>div{flex:1;min-width:0}.sg small{display:block;color:var(--mu);font-size:12px}
+.bt{border:1px solid var(--bd);background:var(--bg);border-radius:9px;padding:8px 12px;font-size:13px;font-weight:700}
+.bt.y{background:var(--ok);border-color:var(--ok);color:#fff}.bt.n{background:var(--no);border-color:var(--no);color:#fff}
+.hg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+@media(max-width:480px){.hb small{display:none}.hb i{font-size:24px}.hb b{font-size:12px}}
+.hb{background:var(--bg);border:2px solid var(--bd);border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.hb i{font-style:normal;font-size:28px}.hb b{font-size:14px}.hb small{color:var(--mu);font-size:11px}.hb em{font-style:normal;font-size:11px;color:var(--c2);font-weight:700}
+.hb.y{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--cd))}.hb.n{border-color:var(--no);background:color-mix(in srgb,var(--no) 14%,var(--cd))}
+.seg{display:flex;gap:6px;margin-top:10px;align-items:center;flex-wrap:wrap}.seg>span{font-size:13px;color:var(--mu);width:100%}
+.seg button{flex:1;min-width:80px}.seg button.on{background:var(--c2);border-color:var(--c2);color:#fff}
+.tc{display:flex;gap:8px;align-items:center;padding:9px;border:2px solid var(--bd);border-radius:11px;margin-bottom:7px;background:var(--bg)}
+.tc.y{border-color:var(--ok)}.tc.n{border-color:var(--no)}
+.tc>div:first-child{flex:1;min-width:0}.tc b{font-size:14px}.tc small{display:block;color:var(--mu);font-size:12px}.tc em{font-style:normal;color:var(--c3);font-size:12px;font-weight:700}
+.tc .tb{display:flex;gap:5px}
+details>summary{cursor:pointer;font-weight:700;padding:6px 0;color:var(--mu)}
+/* list */
+.lg{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--mu);margin:8px 0}
+.gr{background:var(--cd);border:1px solid var(--bd);border-left:5px solid var(--ok);border-radius:12px;padding:9px 10px;margin-bottom:7px}
+.gr.out{opacity:.4;border-left-color:var(--bd)}.gr.out .gn b{text-decoration:line-through}
+.gh{display:flex;align-items:center;gap:8px;cursor:pointer}
+.gn{flex:1;min-width:0}.gn b{font-size:17px}
+.ge span{display:inline-block;font-size:19px;padding:1px 3px;border-radius:6px;border:1.5px solid transparent}
+.ge span.f{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 22%,transparent)}.ge span.r{opacity:.3}
+.mx{border:1px solid var(--bd);background:var(--bg);border-radius:9px;width:34px;height:34px}
+.pp{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--mu);margin-top:4px;flex-wrap:wrap}
+.cb span{font-size:15px;opacity:.28;margin-right:2px}.cb span.has{opacity:1}.cb span.sel{background:color-mix(in srgb,var(--c2) 30%,transparent);border-radius:5px}
+.k{margin-top:4px;font-size:14px}
+.why{margin-top:4px;font-size:12px;color:var(--no)}.why.w{color:var(--wn)}
+dl{margin:8px 0 0;font-size:13px}dt{font-weight:800;color:var(--ac);margin-top:6px}dd{margin:0}
+.tw{overflow-x:auto}table{border-collapse:collapse;font-size:13px;width:100%}td,th{border-bottom:1px solid var(--bd);padding:4px 6px;text-align:center}td:first-child{text-align:left;white-space:nowrap}
+.tl{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}.hw{margin-bottom:10px;font-size:13px}.need{margin-top:4px;font-size:13px;font-weight:700;color:var(--ok)}.gr.okr{background:color-mix(in srgb,var(--ok) 7%,var(--cd))}
+.stl{margin-top:6px;padding:5px 9px;border-radius:9px;background:var(--cd);border:1px solid var(--bd);font-size:12px;font-weight:600}.stl.ok{border-color:var(--ok);color:var(--ok)}.stl.v{border-color:var(--ac);color:var(--ac)}.stl.bad{border-color:var(--no);color:var(--no)}
+.md{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.md button{background:var(--bg);border:2px solid var(--bd);border-radius:11px;padding:7px 2px;display:flex;flex-direction:column;align-items:center}.md b{font-size:20px}.md small{font-size:11px;color:var(--mu)}.md button.on{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--cd))}.mn{margin-top:8px;font-size:13px;color:var(--mu)}.ge span.lk::after{content:'🔒';font-size:9px;position:relative;top:-7px}
+.jg{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}@media(min-width:600px){.jg{grid-template-columns:repeat(3,1fr)}}
+.jt{background:var(--cd);border:2px solid var(--ok);border-radius:12px;padding:8px 9px;cursor:pointer;min-height:76px;display:flex;flex-direction:column;gap:3px}.jt b{font-size:16px}
+.jt.out{border-color:var(--bd);opacity:.55}.jt.out b{text-decoration:line-through}
+.jt .tr{font-size:10px;color:var(--no);line-height:1.2;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tcl span{font-size:12px;opacity:.25;margin-right:3px}.tcl span.has{opacity:1}.tcl span.sel{background:color-mix(in srgb,var(--c2) 35%,transparent);border-radius:5px}
+#sh{position:fixed;inset:0;z-index:20;display:flex;align-items:flex-end;justify-content:center}#sh[hidden]{display:none}
+.bk{position:absolute;inset:0;background:rgba(0,0,0,.55)}
+.pn{position:relative;background:var(--cd);width:100%;max-width:680px;max-height:88vh;overflow:auto;border-radius:18px 18px 0 0;padding:14px 14px calc(18px + env(safe-area-inset-bottom,0px));border-top:5px solid var(--c)}
+.pn h2{margin:0;font-size:24px}.hd{display:flex;gap:8px;align-items:center}
+.stp{border-radius:99px;padding:3px 10px;font-size:12px;font-weight:800;color:#fff}.stp.ok{background:var(--ok)}.stp.bad{background:var(--no)}
+.pn section{margin-top:12px}.pn h4{margin:0 0 5px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mu)}
+.pn ul{margin:0}.pn li{color:var(--no);margin-bottom:2px}
+.eg{display:flex;gap:6px;flex-wrap:wrap}.eg span{border:2px solid var(--bd);border-radius:10px;padding:5px 9px;font-size:13px;font-weight:600}
+.eg span.f,.eg span.on{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--cd))}.eg span.r{border-color:var(--no);opacity:.6;text-decoration:line-through}.eg span.off{opacity:.35;text-decoration:line-through}.eg span.fk{border-style:dashed}
+.bar{display:flex;gap:8px;margin-top:16px}.bar .bt{flex:1;padding:11px}
+.ex{margin:4px 0 8px;font-size:14px;color:var(--tx)}
+.rt{display:flex;gap:6px;margin:12px 0 6px;overflow-x:auto}.rt .sm{white-space:nowrap}.rt .sm.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.rc .nm{cursor:pointer}.nm.dm{opacity:.55;border-style:dashed}.ei{font-size:15px}
+.jg2{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}@media(min-width:600px){.jg2{grid-template-columns:repeat(3,1fr)}}
+.rg{display:flex;justify-content:space-between;align-items:center;background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:7px 9px;cursor:pointer}.rg span{font-size:16px;white-space:nowrap}.rg em{font-style:normal;opacity:.5;font-size:12px}
+.sp{display:flex;flex-direction:column;gap:1px;padding:7px 0;border-top:1px solid var(--bd);font-size:13px}.sp:first-of-type{border-top:0}.sp span{color:var(--mu)}
+.ft{color:var(--mu);font-size:12px;margin:14px 0}
+ul{padding-left:18px;margin:4px 0}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;background:var(--cd);border-top:1px solid var(--bd);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));gap:6px}
+nav button{flex:1;border:0;background:transparent;border-radius:11px;padding:7px 2px;font-size:12px;font-weight:700;color:var(--mu);display:flex;flex-direction:column;align-items:center;gap:1px;position:relative}
+nav button i{font-style:normal;font-size:20px}
+nav button.on{background:color-mix(in srgb,var(--ac) 16%,transparent);color:var(--ac)}
+nav button u{position:absolute;top:1px;right:22%;text-decoration:none;background:var(--ac);color:#fff;border-radius:99px;font-size:10px;padding:0 6px}
+</style>
+</head>
+<body>
+<div class="w">
+<header>
+ <div class="top"><h1>👻 Phasmo Помощник</h1><span class="pill" id="cnt"></span><button class="sm" data-a="reset" id="rb">↺ Новый</button></div>
+ <div class="ev" id="ev"></div><div class="stl" id="stl"></div>
+</header>
+<div id="t1"></div><div id="t2" hidden></div><div id="t3" hidden></div>
+<p class="ft">Данные: патч июля 2026 (GameSpot 28.07.2026, phasmophobia.su). Порядок призраков — как в журнале; новые дописаны в конец. Состояние хранится на этом устройстве.</p>
+</div>
+<div id="sh" hidden><div class="bk" data-a="cl"></div><div class="pn" id="pn"></div></div>
+<nav><button data-a="tab" data-t="1"><i>👻</i>Журнал</button><button data-a="tab" data-t="2"><i>🧪</i>Тесты</button><button data-a="tab" data-t="3"><i>📚</i>Справочник</button></nav>
+<script>
+const EV={E:['⚡','ЭМП 5','ЭМП5'],B:['📻','Spirit Box','Box'],U:['🖐️','УФ-отпечатки','УФ'],O:['🔮','Ghost Orb','Orb'],W:['📖','Запись в книге','Книга'],F:['❄️','Минусовая темп.','Мороз'],D:['🔴','DOTS-проектор','DOTS']};
+const G=[
+['sp','Spirit','EBW','','','n','Без особенностей — определяй по уликам','Благовония/смадж → hunt только через 120 с (у остальных 90 с, у Demon 60 с)'],
+['wr','Wraith','EBD','','','n','Не наступает на соль; телепортируется к игроку (ЭМП 2/5)','Насыпь соль в проходе: следов нет'],
+['ph','Phantom','BUD','','','n','Фото/видео делает его невидимым; −0.5% рассудка/с в ≤10 м','Сфоткай во время появления — на миг исчезнет'],
+['po','Poltergeist','BUW','','','n','Кидает много предметов сразу (ЭМП 3, −2% рассудка за предмет)','Сделай кучу предметов в комнате — полетят вместе'],
+['ba','Banshee','UOD','','50 (по цели)','n','Только женский. Охотится на одну цель; крик в парабол. микрофоне','Парабол. микрофон — редкий крик (33%). Порог считается по цели, не по команде'],
+['ji','Jinn','EUF','1.7 / 2.5','','v','Не выключает щиток сам; у щитка −25% рассудка и ЭМП на щитке','Щиток ON, стой ≤3 м → падает рассудок. 2.5 м/с при LoS, щитке ON и >3 м'],
+['ma','Mare','BOW','','60 темно / 40 свет','n','Только гасит свет (не включает, не мигает); в темноте hunt легче','Включи свет в комнате — выключится за ≤1 с'],
+['re','Revenant','OWF','1.0 → 3.0','','v','Медленный, пока не заметил; 3 м/с после этого. Без LoS-разгона','Ломай LoS углами — потеряв цель, замедляется'],
+['sh','Shade','EWF','','35','n','Стеснительный: не действует, пока игрок в комнате; hunt только при ≤35%','Мало активности при команде в комнате'],
+['de','Demon','UWF','','70 (100 способность)','n','Hunt при любом рассудке, кулдаун 20 с; смадж блокирует лишь 60 с; крест действует шире','Hunt при рассудке >70% — Demon (или Yokai/Kormos)'],
+['yu','Yurei','OFD','','','n','Закрывает дверь: −15% рассудка ≤7.5 м (ЭМП 2); единственный двигает входную дверь','Благовония на блуждающем → 90 с в любимой комнате'],
+['on','Oni','EFD','','','n','Очень активен ≤6 м от игроков; часто полностью виден; без mist','Много chase-событий, виден в полный рост'],
+['yo','Yokai','BOD','','50 (80 с голосом)','n','Голос в комнате → больше активности и hunt с 80%; на hunt слышит лишь ≤2.5 м','Говори в любимой комнате — активность растёт'],
+['ha','Hantu','UOF','1.4 тепло – 2.7 холод','','v','Быстрее на морозе; пар изо рта на hunt при выключенном щитке; без LoS','Щиток OFF → пар. Охлади комнату — станет быстрым'],
+['go','Goryo','EUD','','','n','DOTS виден только через видеокамеру, когда никого нет в комнате; не меняет любимую комнату','Камера на штативе + DOTS, выйди из комнаты'],
+['my','Myling','EUW','','','n','Чаще звуки; на hunt тихий (шаги слышны только ≤12 м)','Шаги слышны поздно — Myling'],
+['oy','Onryo','BOF','','60 (40 у огня)','n','Гасит огонь; 3 затухания → hunt; огонь рядом блокирует hunt','Свеча в любимой комнате: гаснет вне hunt'],
+['tw','Twins','EBF','1.5 / 1.9','','v','Два взаимодействия одновременно, одно далеко; hunt быстрый (1.9) или медленный (1.5)','Два взаимодействия почти вместе — одно далеко'],
+['ra','Raiju','EOD','1.7 / 2.5','50 (65 у техники)','v','Глушит электронику на 15 м; рядом с включённой техникой быстрее и охотнее','На hunt выключи технику — станет медленнее'],
+['ob','Obake','EUO','','','n','Необычные отпечатки (6 пальцев; 2 или 5); меняет модель при мерцании','UV: 6-палый отпечаток / модель изменилась'],
+['mi','Mimic','BUF','зависит от копии','зависит от копии','v','Копирует любого призрака; ВСЕГДА даёт 🔮 Orb — это не улика, он есть даже при 0 улик. Меняет тип каждые 0.5–2 мин','Box+UV+Мороз и ещё Orb = Mimic. Поведение «плавает» между тестами'],
+['mo','Moroi','BWF','1.5 → 2.25','','v','Проклятие: рассудок падает ×2; быстрее с падением рассудка','Ответ Spirit Box → проклят. Таблетки снимают'],
+['dg','Deogen','BWD','3.0 далеко, 0.4–0.9 ≤6 м','40','v','Находит где ни спрячься; вблизи почти стоит. Без LoS','Не прячься: отходи и кружи между комнатами'],
+['th','Thaye','OWD','2.75 → 1.0','75 → 15 (с возрастом)','v','Стареет: скорость, активность и порог падают; без LoS','Сначала очень активен и быстр, потом затихает'],
+['da','Dayan','EBO','1.2 / 2.25','50 / 45 / 65','v','Только женский. Скорость зависит от движения ближайшего игрока в ≤10 м','Стой ↔ ходи в 10 м: скорость прыгает 1.2↔2.25'],
+['ga','Gallu','EUB','1.36 / 1.7 / 1.955','40 / 50 / 60','v','Три состояния (слабый/обычный/яростный): крест, благовония, соль их меняют','Сожги крест → яростный (быстрее, 60%). Яростный не наступает на соль'],
+['om','Obambo','UWD','1.445 / 1.955','10 / 65','v','Спокойный ↔ агрессивный каждые 2 мин (старт через 1 мин после открытия входной двери)','Следи за циклом: активность большая → малая'],
+['as','Aswang','FWD','1.53 (LoS-макс. за 8.7 с)','','s','Нашёл в укрытии — завершает hunt; следующий hunt идёт прямо к этому игроку','Спрячься в официальное укрытие: hunt завершится без смерти'],
+['ko','Kormos','OBU','1.7 / 2.21 к звуку','50 (70 при беге рядом)','v','Слепой: слышит бег на 30 м, ходьбу 15 м, присед 10 м; LoS только ≤5 м','Присядь и не двигайся — пройдёт мимо. Тот же набор улик, что у Mimic'],
+['dd','Deildegast','EWD','3.0 → 0.4','','v','Старт 3 м/с; −0.1 за каждый перемещённый предмет (до ~30); после hunt сбрасывается','Перемещай предметы (не двери и не оборудование) — становится медленнее']
+].map(a=>({id:a[0],en:a[1],ev:a[2],spd:a[3]||'1.7',th:a[4]||'50',g:a[5],k:a[6],t:a[7]}));
+// какие скорости на hunt он может показать (n обычная, s медленная, f быстрая) и ускоряется ли при виде игрока (1/0)
+const SP={ji:['nf',1],re:['sf',0],ha:['snf',0],tw:['sf',1],ra:['nf',1],mo:['snf',1],dg:['snf',0],th:['snf',0],da:['snf',1],ga:['snf',1],om:['sf',1],as:['sn',1],ko:['nf',1],dd:['snf',1],mi:['snf',1]};
+const sp=g=>SP[g.id]||['n',1];
+const H5='ba da de ga ko ma om oy ra th yo',H7='de ko yo th';
+const CL=[['n','🚶','Обычная','≈1.7 м/с'],['s','🐢','Медленная','медленнее ходьбы'],['f','🏃','Быстрая','≥1.9 м/с']];
+// id,название,как проверить,ДА-набор,НЕТ-набор,риск(hunt). '-' = все кроме. Mimic добавляется автоматически.
+const C=[
+['m','♂ Призрак мужского пола','Имя в фургоне / модель при появлении','-ba da','',0],
+['ph','Фото → призрак исчезает','Фото/видео во время появления','ph','',0],
+['sa','Соль не топчется','Соль в проходе (Gallu — только яростный)','wr ga','',0],
+['ca','Огонь гаснет вне hunt','Свеча/зажигалка в любимой комнате','oy','',0],
+['sm','После смаджа hunt не было ≥90 с','Засеки время (✕ = hunt раньше 90 с)','sp','-sp',1],
+['li','Свет только гаснет','Включи свет в комнате — выключится ≤1 с','ma','',0],
+['br','Пар изо рта на hunt','Щиток OFF, смотри у головы','ha','',1],
+['fu','−25% рассудка у щитка','Щиток ON, стой ≤3 м; ЭМП на щитке','ji','',0],
+['sc','Крик в парабол. микрофоне','Парабол. микрофон в любимой комнате','ba','',0],
+['sb','Spirit Box: тяжёлое дыхание','Слушай ответ (33%)','dg','',0],
+['cu','После Box/мик. рассудок падает ×2','Следи за рассудком после ответа','mo','',0],
+['dt','DOTS только на видеокамере','Камера на штативе, выйди из комнаты','go','',0],
+['tw','Два взаимодействия сразу','Одно рядом, второе далеко','tw','',0],
+['pg','Кидает кучу предметов сразу','Навали предметы в комнате','po','',0],
+['yu','Закрывает дверь, −15% рассудка','Открой дверь в любимой комнате','yu','',0],
+['ra','Техника глючит на ≤15 м','Держи включённую технику рядом','ra','',0],
+['yk','Голос → активность, hunt 80%','Говори в любимой комнате','yo','',0],
+['sh','Ничего не делает при игроках в комнате','Стой в любимой комнате — тишина?','sh','',0],
+['hd','Hunt оборвался на укрытии','Только официальное укрытие, риск!','as','',1],
+['bl','Не замечает, если стоишь/присел','На hunt не двигайся','ko','',1],
+['dy','Скорость прыгает от моего движения ≤10 м','На hunt стой ↔ ходи','da','',1],
+['dp','Замедляется от перемещённых предметов','Перемещай предметы, сравни hunt’ы','dd','',0],
+['st','Крест/благовония/соль меняют скорость','Сожги крест — проверь следующий hunt','ga','',1],
+['cy','Цикл 2 мин: покой ↔ агрессия','Следи за активностью во времени','om','',0],
+['qu','Тихие шаги (≤12 м), частые звуки','На hunt слышен лишь вблизи','my','',1],
+['pr','6-палый отпечаток / смена модели','UV-отпечатки, модель при мерцании','ob','',0],
+['ag','Стареет: тише и медленнее','Сравни начало и конец игры','th','',0],
+['fl','Полностью виден, много chase','Часто в полный рост ≤6 м','on','',0]
+].map(a=>({id:a[0],l:a[1],h:a[2],y:a[3],n:a[4],r:a[5]}));
+const $=s=>document.querySelector(s);
+let S={F:[],R:[],lim:3,c:{},man:[],hide:false,top:false,tab:1,sp:{},lo:0,hs:0};
+try{Object.assign(S,JSON.parse(localStorage.getItem('pm7')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('pm7',JSON.stringify(S))}catch(e){}};
+let cur=null,rf=1,rst=0;
+const ok=(st,id)=>st[0]=='-'?!st.slice(1).split(' ').includes(id):(st.split(' ').includes(id)||id=='mi');
+const E=g=>g.ev+(g.id=='mi'?'O':'');
+const SN={n:'🚶',s:'🐢',f:'🏃'};
+const GU={go:'D',ob:'U',ha:'F',dg:'B',mo:'B'};
+const IC=k=>EV[k][0];
+// Проверка совместимости призрака с уликами и лимитом. Пустой массив = подходит.
+function chk(g,F,R,L){
+ const w=[],mi=g.id=='mi',real=mi?'BUF':g.ev,fr=mi?F.filter(k=>k!='O'):F;
+ fr.forEach(k=>{if(!real.includes(k))w.push('нет '+IC(k))});
+ if(fr.length>L)w.push(L?`найдено ${fr.length} улик при лимите ${L} — так бывает только у Mimic`:'при 0 улик настоящие улики не выпадают');
+ if(mi&&R.includes('O'))w.push('у Mimic 🔮 Orb есть всегда');
+ const gu=!mi&&L>0&&L<3?GU[g.id]:'';
+ if(gu){if(R.includes(gu))w.push('при лимите '+L+' у него всегда есть '+IC(gu)+', а ты её исключил');else if(!fr.includes(gu)&&fr.length>L-1)w.push('при лимите '+L+' у него всегда есть '+IC(gu)+' — на найденные улики не хватает места')}
+ const rr=[...real].filter(k=>R.includes(k));
+ if(L==3)rr.forEach(k=>w.push('есть '+IC(k)+', а ты её исключил'));
+ else if(L>0&&real.length-rr.length<L)w.push(`нужно показать ${L} улик, а доступно только ${real.length-rr.length}`);
+ return w}
+function stat(){const L=S.lim,F=S.F,o=F.includes('O'),f=F.length;
+ if(L==0)return o?['v','🔮 Orb при 0 улик = это Mimic']:['','0 улик: настоящие улики не выпадают. Единственный признак — 🔮 Orb (Mimic)'];
+ if(f>L)return o&&f-1<=L?['v','Лишняя улика сверх лимита → это Mimic']:['bad','Найдено больше, чем возможно — проверь отметки'];
+ const mp=F.filter(k=>k!='O').every(k=>'BUF'.includes(k));
+ return [f==L?'ok':'',`Найдено ${f} из ${L}`+(f==L?' ✓ улики закрыты'+(mp&&!o?' · ещё одна 🔮 Orb = Mimic':''):'')]}
+function ev(g){const why=chk(g,S.F,S.R,S.lim),[cl,l]=sp(g);
+ for(const k in S.sp)if(S.sp[k]&&!cl.includes(k))why.push(SN[k]+' он не показывает');
+ if(g.id!='mi'){if(S.lo==1&&!l)why.push('⏩ он не ускоряется при виде');if(S.lo==-1&&l)why.push('⏩ он ускоряется при виде')}
+ if(S.hs){if(!ok(S.hs==1?H5:H7,g.id))why.push('hunt при рассудке >'+(S.hs==1?50:70)+'% не его')}
+ C.forEach(c=>{const v=S.c[c.id];if(!v)return;const st=v>0?c.y:c.n;if(st&&!ok(st,g.id))why.push((v>0?'✓ ':'✕ ')+c.l)});
+ if(S.man.includes(g.id))why.push('вычеркнут вручную');
+ return{why,soft:[]}}
+function sug(rem){const n=rem.length;if(n<2)return[];const o=[];
+ Object.keys(EV).forEach(k=>{if(S.F.includes(k)||S.R.includes(k))return;
+  const hf=rem.filter(g=>!chk(g,[...S.F,k],S.R,S.lim).length).length,hn=rem.filter(g=>!chk(g,S.F,[...S.R,k],S.lim).length).length;
+  if(!hf||(hf==n&&hn==n))return;o.push({v:Math.min(n-hf,n-hn)+.6+(k=='O'&&!S.lim?30:0),e:k,hf,hn})});
+ ['n','s','f'].forEach(k=>{if(S.sp[k])return;const h=rem.filter(g=>sp(g)[0].includes(k)).length;if(h&&h<n)o.push({v:Math.min(h,n-h)+.2,s:k,h})});
+ if(!S.lo){const h=rem.filter(g=>g.id=='mi'||sp(g)[1]).length;if(h<n)o.push({v:Math.min(h,n-h)+.2,lo:1,h})}
+ C.forEach(c=>{if(S.c[c.id])return;const m=rem.filter(g=>ok(c.y,g.id));const h=m.length;if(h&&h<n)o.push({v:Math.min(h,n-h)*.8-(c.r?.4:0),c,h,m})});
+ return o.sort((a,b)=>b.v-a.v).slice(0,3)}
+const un=s=>/^\d/.test(s)?s+' м/с':s;
+const pc=s=>/^\d/.test(s)?'%':'';
+const stp=(n,c,t,s)=>`<div class="sh"><span class="n" style="background:${c}">${n}</span><div><b>${t}</b><small>${s}</small></div></div>`;
+function tests(rg,n){
+ const act=C.filter(c=>S.c[c.id]);
+ const rel=C.filter(c=>{if(S.c[c.id])return false;const m=rg.filter(g=>ok(c.y,g.id)).length;return m>0&&m<n});
+ const oth=C.filter(c=>!S.c[c.id]&&!rel.includes(c));
+ const tc=c=>{const v=S.c[c.id]||0,m=rg.filter(g=>ok(c.y,g.id));return `<div class="tc ${v>0?'y':v<0?'n':''}"><div><b>${c.l}</b><small>${c.h}${c.r?' · ⚠ на hunt':''}</small>${!v&&m.length&&m.length<n?`<em>если да → ${m.length<=3?m.map(g=>g.en).join(', '):m.length+' из '+n}</em>`:''}</div><div class="tb"><button class="bt ${v>0?'y':''}" data-a="cs" data-id="${c.id}" data-v="${v>0?0:1}">${v>0?'✓ да':'Да'}</button>${c.n?`<button class="bt ${v<0?'n':''}" data-a="cs" data-id="${c.id}" data-v="${v<0?0:-1}">${v<0?'✕ нет':'Нет'}</button>`:''}</div></div>`};
+ return `<div class="st" style="--c:var(--c3)">${stp('🧪','var(--c3)','Тесты и приметы','сначала те, что сейчас реально сужают список. Ответ «Да» сразу вычёркивает призраков в журнале')}${act.map(tc).join('')}${rel.length?rel.map(tc).join(''):'<small style="color:var(--mu)">Сейчас ни один тест не разделяет оставшихся — добавь улики или скорость.</small>'}${oth.length?`<details><summary>Остальные тесты (${oth.length})</summary>${oth.map(tc).join('')}</details>`:''}</div>`}
+const MODES=[[3,'3','Обычные','Все 3 улики находимы. ✕ у улики вычёркивает всех, у кого она есть. Четвёртая улика (🔮 сверх лимита) = Mimic.'],[2,'2','Nightmare','Призрак показывает только 2 из 3 своих улик. Всегда есть одна гарантированная: Goryo 🔴, Obake 🖐️, Hantu ❄️, Deogen и Moroi 📻. Третья улика сверх лимита, особенно 🔮 = Mimic.'],[1,'1','Insanity','Показывает 1 из 3 (у Goryo/Obake/Hantu/Deogen/Moroi — гарантированную). 🔮 Orb + одна настоящая улика = Mimic.'],[0,'0','Без улик','Улики не выпадают. 🔮 Orb есть только у Mimic — если видишь его, это он. Остальных определяй по охоте и тестам.']];
+function render0(){
+ const rows=G.map(g=>({g,...ev(g)})),rem=rows.filter(r=>!r.why.length),n=rem.length,rg=rem.map(r=>r.g),L=S.lim;
+ $('#ev').innerHTML=Object.keys(EV).map(k=>{const st=S.F.includes(k)?'f':S.R.includes(k)?'r':'';return `<button class="eb ${st}" data-a="e" data-k="${k}"><i>${EV[k][0]}</i><b>${EV[k][2]}</b><u>${st=='f'?'✓':st=='r'?'✕':''}</u></button>`}).join('');
+ const sb=stat();$('#stl').className='stl '+sb[0];$('#stl').textContent=`Режим: ${L} ${L==1?'улика':L==0?'улик':'улики'} · ${sb[1]}`;
+ $('#cnt').textContent=n+' / 30';
+ $('#rb').textContent=rst?'Точно?':'↺ Новый';
+ document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t==S.tab));
+ ['t1','t2','t3'].forEach((id,i)=>$('#'+id).hidden=S.tab!=i+1);
+ if(S.tab==3){$('#t3').innerHTML=ref();return}
+ if(S.tab==2){$('#t2').innerHTML=tests(rg,n);return}
+ let h=`<div class="st" style="--c:var(--c1)">${stp('⚙','var(--c1)','Режим контракта','сколько улик выпадает у призрака — от этого зависит вся логика')}<div class="md">${MODES.map(m=>`<button class="${L==m[0]?'on':''}" data-a="lim" data-n="${m[0]}"><b>${m[1]}</b><small>${m[2]}</small></button>`).join('')}</div><div class="mn">${MODES.find(m=>m[0]==L)[3]}</div></div>`;
+ if(n==1)h+=`<div class="v ok"><div class="big">✅ Это ${rg[0].en}</div>${rg[0].k}<br><small>Проверка: ${rg[0].t}</small></div>`;
+ else if(!n)h+=`<div class="v bad"><b>⚠ Не осталось ни одного призрака.</b> Где-то ошибочная отметка: сними последнюю улику/скорость или проверь режим контракта.</div>`;
+ else h+=`<div class="v"><b>Подходят ${n} из 30</b> — ${S.F.length+S.R.length+Object.values(S.sp).filter(Boolean).length+(S.lo?1:0)+(S.hs?1:0)+Object.keys(S.c).length?'зелёные в списке ниже, остальные вычеркнуты':'отметь улики сверху и скорость охоты'}</div>`;
+ const sg=sug(rg);
+ if(sg.length)h+=`<div class="st nx" style="--c:var(--c2)">${stp('➡','var(--c2)','Что сделать дальше','самые полезные проверки прямо сейчас')}`+sg.map(s=>{
+  if(s.e)return `<div class="sg"><div><b>${EV[s.e][0]} ${EV[s.e][1]}</b><small>✓ найдёшь → останется ${s.hf} · ✕ нет → ${s.hn}${s.e=='O'?' · 🔮 всегда есть у Mimic':''}</small></div><button class="bt y" data-a="sf" data-k="${s.e}">✓ есть</button><button class="bt n" data-a="sr" data-k="${s.e}">✕ нет</button></div>`;
+  if(s.s){const c=CL.find(x=>x[0]==s.s);return `<div class="sg"><div><b>${c[1]} ${c[2]} скорость на hunt</b><small>возможна у ${s.h} из ${n}. Видел такую — отметь</small></div><button class="bt y" data-a="sp" data-k="${s.s}">✓ видел</button></div>`}
+  if(s.lo)return `<div class="sg"><div><b>⏩ Ускорялся, когда видел тебя?</b><small>не ускоряются только 4 призрака (+Mimic)</small></div><button class="bt y" data-a="slo" data-v="1">✓ да</button><button class="bt n" data-a="slo" data-v="-1">✕ нет</button></div>`;
+  return `<div class="sg"><div><b>${s.c.l}${s.c.r?' ⚠':''}</b><small>${s.c.h}. Если да → ${s.h<=3?s.m.map(g=>g.en).join(', '):s.h+' из '+n}</small></div><button class="bt y" data-a="cs" data-id="${s.c.id}" data-v="1">✓ да</button>${s.c.n?`<button class="bt n" data-a="cs" data-id="${s.c.id}" data-v="-1">✕ нет</button>`:''}</div>`}).join('')+`</div>`;
+ const can=k=>rg.filter(g=>sp(g)[0].includes(k)).length;
+ h+=`<div class="st" style="--c:var(--c2)">${stp(2,'var(--c2)','Охота','после охоты отметь, что увидел (можно несколько)')}<div class="hg">`+
+  CL.map(c=>{const on=S.sp[c[0]];return `<button class="hb ${on?'y':''}" data-a="sp" data-k="${c[0]}"><i>${c[1]}</i><b>${c[2]}</b><small>${c[3]}</small><em>${on?'✓':'подх. '+can(c[0])}</em></button>`}).join('')+
+  `<button class="hb ${S.lo>0?'y':S.lo<0?'n':''}" data-a="lo"><i>⏩</i><b>Ускорялся</b><small>разгон при виде тебя</small><em>${S.lo>0?'✓ да':S.lo<0?'✕ нет':'тап'}</em></button></div>
+  <div class="seg"><span>Рассудок команды в начале охоты (без проклятых предметов):</span>${[[0,'Не знаю'],[1,'Выше 50%'],[2,'Выше 70%']].map(x=>`<button class="sm ${S.hs==x[0]?'on':''}" data-a="hs" data-v="${x[0]}">${x[1]}</button>`).join('')}</div></div>`;
+ let rr=rows.slice();if(S.top)rr.sort((a,b)=>(a.why.length>0)-(b.why.length>0));
+ h+=`<div class="st" style="--c:var(--c4)">${stp(3,'var(--c4)','Призраки — как в журнале','тап по призраку открывает подробную карточку')}
+ <div class="tl"><button class="sm ${S.top?'on':''}" data-a="top">Подходящие сверху</button><button class="sm ${S.hide?'on':''}" data-a="hide">Скрыть вычеркнутых</button></div>
+ <details class="hw"><summary>ℹ️ Как вычёркивать</summary><ul><li><b>✓ улика найдена</b> → вычёркиваются все, у кого её нет.</li><li><b>✕ улика не выпала</b> (проверил как следует) → при 3 уликах вычёркиваются все, у кого она есть; при 2 и 1 — те, у кого не остаётся достаточно улик для показа.</li><li><b>Лимит:</b> найдено больше улик, чем режим позволяет → остаётся только Mimic (его 🔮 Orb не считается уликой и есть всегда).</li><li><b>Охота:</b> отметь скорость, что видел → вычёркиваются те, кто так не бегает.</li><li><b>🔒</b> — улика гарантирована у призрака при 1–2 уликах.</li></ul></details>
+ <div class="jg">`+rr.filter(r=>!(S.hide&&r.why.length)).map(({g,why})=>{const out=why.length,[cl,l]=sp(g),mi=g.id=='mi',gu=S.lim>0&&S.lim<3&&!mi?GU[g.id]:'';
+  return `<div class="jt ${out?'out':''}" data-a="x" data-id="${g.id}"><b>${g.en}</b><div class="ge">${[...g.ev].map(k=>`<span class="${S.F.includes(k)?'f':S.R.includes(k)?'r':''} ${gu==k?'lk':''}">${EV[k][0]}</span>`).join('')}${mi?`<span class="${S.F.includes('O')?'f':S.R.includes('O')?'r':''}">🔮</span>`:''}</div><div class="tcl">${['n','s','f'].map(k=>`<span class="${cl.includes(k)?'has':''} ${S.sp[k]?'sel':''}">${SN[k]}</span>`).join('')}<span class="${l?'has':''} ${S.lo>0?'sel':''}">⏩</span></div>${out?`<div class="tr">✕ ${why[0]}</div>`:''}</div>`}).join('')+`</div></div>`;
+ 
+$('#t1').innerHTML=h;
+}
+function render(){render0();sheet()}
+const SPX={ji:'Обычно 1.7. Разгоняется до 2.5, если видит тебя, щиток включён и ты дальше 3 м от него.',re:'1.0 м/с, пока не заметил игрока; 3.0 м/с — после того как заметил. От зрительного контакта не разгоняется.',ha:'От 1.4 (в тепле) до 2.7 (в холоде): чем холоднее в комнате, тем быстрее. От зрительного контакта не разгоняется.',tw:'Один из близнецов медленный (1.5), другой быстрый (1.9).',ra:'Обычно 1.7, но рядом с включённой электроникой — до 2.5.',mi:'Как у призрака, которого сейчас копирует.',mo:'Стартует с 1.5 и становится быстрее по мере падения рассудка, максимум 2.25.',dg:'3.0 вдали, но ближе 6 м к игроку замедляется до 0.4–0.9. От зрительного контакта не разгоняется.',th:'Молодой 2.75 → старый 1.0. От зрительного контакта не разгоняется.',da:'1.2, если ближайший игрок (в 10 м) стоит; 2.25, если двигается. Без игроков рядом — обычная 1.7.',ga:'Слабый 1.36 / обычный 1.7 / яростный 1.955.',om:'Спокойный 1.445 / агрессивный 1.955, фазы меняются каждые 2 минуты.',as:'1.53 — чуть медленнее обычного, но при виде игрока разгоняется быстрее остальных (8.7 с вместо 13 с).',ko:'1.7, а по пути к услышанному звуку — 2.21.',dd:'Начинает с 3.0, замедляется на 0.1 за каждый переставленный предмет (минимум 0.4). После охоты скорость сбрасывается.'};
+const THX={ba:'50%, но считается по рассудку одного игрока (цели), а не всей команды.',ma:'60% в тёмной комнате, 40% при включённом свете.',sh:'35% — охотится очень поздно, когда рассудок уже сильно упал.',de:'70%, да ещё может начать охоту при любом рассудке (способность раз в 20 с).',yo:'50%, но 80%, если рядом говорят вслух.',oy:'60%, а если рядом горит огонь — 40%.',ra:'50%, а рядом с включённой электроникой — 65%.',mi:'Как у призрака, которого копирует.',dg:'40% — охотится поздно.',th:'75% у молодого, с возрастом падает до 15%.',da:'45% / 50% / 65% — зависит от движения игроков рядом.',ga:'40% ослабленный / 50% обычный / 60% яростный.',om:'10% в спокойной фазе, 65% в агрессивной.',ko:'50%, а если рядом кто-то бежит — 70%.'};
+const EVX={E:'ЭМП-считыватель: уровень 5 (горят все 5 лампочек). Уровни 2–4 уликой не считаются.',B:'Spirit Box: в любимой комнате, в темноте, один в комнате. Любой ответ на вопрос = улика.',U:'УФ-фонарик: светящиеся отпечатки на дверях, окнах, выключателях после взаимодействия.',O:'Камера в ночном режиме в любимой комнате при выключенном свете: плавают светящиеся шарики.',W:'Книга: положи в любимой комнате. Любая запись или рисунок в ней = улика.',F:'Термометр: в любимой комнате при включённом щитке — ниже 0 °C. Пар изо рта улику не подтверждает.',D:'DOTS-проектор: поставь в любимой комнате и смотри на силуэт/движение глазами или через камеру.'};
+function sheet(){const el=$('#sh');
+ if(!cur){el.hidden=true;document.body.style.overflow='';return}
+ const g=G.find(x=>x.id==cur),why=ev(g).why,out=why.length,[cl,l]=sp(g),mi=g.id=='mi',L=S.lim,gu=GU[g.id],fr=mi?S.F.filter(k=>k!='O'):S.F,slots=L-fr.length,left=[...(mi?'BUF':g.ev)].filter(k=>!S.F.includes(k)&&!S.R.includes(k)),man=S.man.includes(g.id);
+ const need=L==0?'Улики не выпадают — определяй по охоте и тестам.':slots<=0?`✓ Лимит улик закрыт (${fr.length}/${L}) — больше улик искать не нужно.`:`Может показать ещё ${slots}: ${left.map(k=>EV[k][0]+' '+EV[k][1]).join(', ')}.`;
+ $('#pn').style.setProperty('--c',out?'var(--no)':'var(--ok)');
+ $('#pn').innerHTML=`<div class="hd"><h2>${g.en}</h2><span class="stp ${out?'bad':'ok'}">${out?'✕ вычеркнут':'✓ подходит'}</span><button class="mx" data-a="cl" style="margin-left:auto">✕</button></div>
+ ${out?`<section><h4>Почему вычеркнут</h4><ul>${why.map(w=>`<li>${w}</li>`).join('')}</ul></section>`:`<section><div class="need">${need}</div></section>`}
+ <section><h4>Главная особенность</h4>${g.k}</section>
+ <section><h4>Как проверить</h4>${g.t}</section>
+ <section><h4>Улики</h4><div class="eg">${[...g.ev].map(k=>`<span class="${S.F.includes(k)?'f':S.R.includes(k)?'r':''}">${EV[k][0]} ${EV[k][1]}${gu==k?' 🔒':''}</span>`).join('')}${mi?'<span class="fk">🔮 Orb — всегда, но не улика</span>':''}</div>${gu?`<small>🔒 При 1–2 уликах в контракте эта улика у него гарантирована.</small>`:''}</section>
+ <section><h4>Скорость на охоте</h4><div class="eg">${CL.map(c=>`<span class="${cl.includes(c[0])?'on':'off'}">${c[1]} ${c[2]}</span>`).join('')}<span class="${l?'on':'off'}">⏩ ${l?'ускоряется при виде тебя':'не ускоряется'}</span></div><p class="ex">${SPX[g.id]||'1.7 м/с. Когда видит игрока во время охоты, постепенно разгоняется.'}</p></section>
+ <section><h4>Когда начинает охоту</h4><p class="ex">${THX[g.id]||'50% — обычный порог: может охотиться, только когда средний рассудок команды ниже 50%.'}</p></section>
+ <div class="bar"><button class="bt ${man?'':'n'}" data-a="m" data-id="${g.id}">${man?'↺ Вернуть в список':'✕ Вычеркнуть вручную'}</button><button class="bt" data-a="cl">Закрыть</button></div>`;
+ el.hidden=false;document.body.style.overflow='hidden'}
+function ref(){
+ const tabs=[[1,'Улики'],[2,'Скорость'],[3,'Рассудок'],[4,'Mimic и режим']];
+ const chip=g=>`<span class="nm" data-a="x" data-id="${g.id}">${g.en}</span>`;
+ let h=`<div class="rt">${tabs.map(t=>`<button class="sm ${rf==t[0]?'on':''}" data-a="rf" data-v="${t[0]}">${t[1]}</button>`).join('')}</div>`;
+ if(rf==1){
+  h+=`<p class="ex">Нажми на имя призрака — откроется его карточка.</p>`;
+  h+=Object.keys(EV).map(k=>{const has=G.filter(g=>g.ev.includes(k));return `<div class="st rc" style="--c:var(--c1)"><div class="sh"><span class="n ei">${EV[k][0]}</span><div><b>${EV[k][1]}</b><small>есть у ${has.length} из 30 призраков</small></div></div><p class="ex">${EVX[k]}</p><div>${has.map(chip).join('')}${k=='O'?`<span class="nm dm" data-a="x" data-id="mi">Mimic — всегда, не улика</span>`:''}</div></div>`}).join('');
+  h+=`<div class="st" style="--c:var(--c3)"><div class="sh"><span class="n">≡</span><div><b>По призраку: какие у него улики</b><small>быстрый обзор всех 30</small></div></div><div class="jg2">${G.map(g=>`<div class="rg" data-a="x" data-id="${g.id}"><b>${g.en}</b><span>${[...g.ev].map(k=>EV[k][0]).join('')}${g.id=='mi'?'<em>+🔮</em>':''}</span></div>`).join('')}</div></div>`}
+ if(rf==2){
+  h+=`<p class="ex">После первой охоты определи, как двигался призрак. Это одно из самых сильных вычёркиваний. Призраки с переменной скоростью попадают сразу в несколько категорий.</p>`;
+  h+=CL.map(c=>`<div class="st rc" style="--c:var(--c2)"><div class="sh"><span class="n ei">${c[1]}</span><div><b>${c[2]} — ${c[3]}</b><small>может показать ${G.filter(g=>sp(g)[0].includes(c[0])).length} из 30</small></div></div><p class="ex">${c[0]=='n'?'Идёт примерно как ты при ходьбе. Так двигается большинство призраков.':c[0]=='s'?'Заметно медленнее тебя. Можно оторваться просто идя быстрым шагом.':'Быстрее бега игрока или заметно быстрее ходьбы, даже когда ещё не видит тебя.'}</p><div>${G.filter(g=>sp(g)[0].includes(c[0])).map(chip).join('')}</div></div>`).join('');
+  h+=`<div class="st rc" style="--c:var(--c2)"><div class="sh"><span class="n ei">⏩</span><div><b>Ускоряется при виде тебя</b><small>зрительный контакт (LoS)</small></div></div><p class="ex">Большинство призраков постепенно разгоняются, пока видят тебя во время охоты. Не ускоряются только: ${G.filter(g=>!sp(g)[1]).map(chip).join('')}(+ Mimic, если копирует одного из них). Отмечай «нет», только если он точно тебя видел.</p></div>`;
+  h+=`<div class="st" style="--c:var(--c2)"><div class="sh"><span class="n">⏱</span><div><b>Особые скорости простыми словами</b><small>все, кто не ходит ровно 1.7</small></div></div>${G.filter(g=>SPX[g.id]).map(g=>`<div class="sp" data-a="x" data-id="${g.id}"><b>${g.en}</b><span>${SPX[g.id]}</span></div>`).join('')}</div>`}
+ if(rf==3){
+  h+=`<div class="st" style="--c:var(--c3)"><div class="sh"><span class="n">🧠</span><div><b>Что такое порог охоты</b></div></div><p class="ex">У каждого призрака есть число — <b>порог рассудка</b>. Призрак может начать охоту, только когда <b>средний рассудок команды ниже этого числа</b>. У большинства порог 50%: пока у вас выше 50%, он не охотится.</p><p class="ex"><b>Как использовать:</b> если первая охота началась, когда рассудок команды был выше 50%, — это точно не обычный призрак. Если выше 70% — остаются почти только Demon, Yokai, Kormos и Thaye (и Mimic). Отметь это в блоке «Охота» — список сам вычеркнет остальных. Учитывай: охоту могут вызвать проклятые предметы и обезьянья лапа — тогда не считается.</p></div>`;
+  const grp=(t,s,arr)=>`<div class="st rc" style="--c:var(--c3)"><b>${t}</b><p class="ex">${s}</p>${arr.map(a=>`<div class="sp"><b>${a[0]}</b><span>${a[1]}</span></div>`).join('')}</div>`;
+  h+=grp('Охотятся раньше (порог выше 50%)','Могут напасть, когда у команды ещё хороший рассудок.',[['Yokai','80% — если рядом говорят вслух'],['Thaye','75% в начале игры, потом падает'],['Demon','70% (и может охотиться при любом рассудке)'],['Kormos','70% — если рядом кто-то бежит'],['Dayan','до 65% — зависит от движения игроков'],['Obambo','65% — в агрессивной фазе'],['Raiju','65% — рядом включена электроника'],['Mare','60% — в тёмной комнате'],['Onryo','60%'],['Gallu','60% — в яростном состоянии']]);
+  h+=grp('Обычные (порог 50%)','Охотятся, когда средний рассудок ниже 50%.',[[G.filter(g=>!THX[g.id]).map(g=>g.en).join(', '),'']]);
+  h+=grp('Охотятся позже (порог ниже 50%)','Могут долго не охотиться, даже когда рассудок упал.',[['Obambo','10% — в спокойной фазе'],['Thaye','15% — когда состарился'],['Shade','35%'],['Deogen','40%'],['Mare','40% — при свете'],['Onryo','40% — рядом огонь'],['Gallu','40% — ослабленный'],['Dayan','45%']]);
+  h+=`<p class="ex"><b>Banshee</b> — особый: считает рассудок одного игрока (цели), поэтому может начать охоту, пока у команды рассудок выше 50%.</p>`}
+ if(rf==4){
+  h+=`<div class="st rc" style="--c:var(--c1)"><b>1. Режим контракта (3 / 2 / 1 / 0)</b><p class="ex">Сколько улик призрак вообще показывает. Обычные сложности — 3, Nightmare — 2, Insanity — 1, без улик — 0. Выбирай в карточке «Режим контракта» вверху журнала: вся логика подстраивается.</p></div>`;
+  h+=`<div class="st rc" style="--c:var(--c1)"><b>2. Чем особенный Mimic</b><ul><li>Его настоящие улики: 📻 🖐️ ❄️.</li><li>Но он <b>всегда</b> показывает ещё и 🔮 Orb — это фальшивая улика, она не входит в лимит и есть даже при 0 улик.</li><li>Поэтому: <b>найдено больше улик, чем разрешает режим → это Mimic</b>. При 0 улик любой 🔮 Orb = Mimic.</li><li>Mimic может долго не показывать Orb, так что отсутствие 🔮 в начале его не исключает.</li><li>Он копирует поведение других призраков, но не может показать ⚡ 📖 🔴.</li></ul></div>`;
+  h+=`<div class="st rc" style="--c:var(--c1)"><b>3. Примеры</b><ul><li>Режим 3: нашёл 🔮 📻 🖐️ → Mimic или Kormos.</li><li>Режим 3: нашёл 🔮 📻 🖐️ ❄️ (четыре) → только Mimic.</li><li>Режим 0: увидел 🔮 → Mimic.</li><li>Режим 1: нашёл 🔮 и 📻 → Mimic.</li><li>Режим 2: нашёл ⚡ и 📻 → Spirit, Wraith, Twins, Dayan или Gallu.</li></ul></div>`;
+  h+=`<div class="st rc" style="--c:var(--c1)"><b>4. Гарантированные улики 🔒</b><p class="ex">При режиме 1 или 2 некоторые призраки всегда показывают определённую улику, остальные скрыты случайно: Goryo — 🔴, Obake — 🖐️, Hantu — ❄️, Deogen и Moroi — 📻. При 0 улик гарантий нет.</p></div>`;
+  h+=`<div class="st rc" style="--c:var(--c1)"><b>5. Что значат ✓ и ✕ на уликах</b><ul><li><b>✓</b> — улика найдена: вычёркиваются призраки, у которых её нет.</li><li><b>✕</b> — ты проверил и её нет: при режиме 3 вычёркиваются все, у кого она есть. При 2 и 1 призрак мог её скрыть — вычёркиваются только те, у кого не остаётся достаточно улик для показа.</li></ul></div>`}
+ return h}
+document.addEventListener('keydown',e=>{if(e.key=='Escape'&&cur){cur=null;render()}});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,k=b.dataset.k,id=b.dataset.id;
+ const rm=(arr,x)=>{const i=arr.indexOf(x);if(i>=0)arr.splice(i,1)};
+ if(a=='e'){if(S.F.includes(k)){rm(S.F,k);S.R.push(k)}else if(S.R.includes(k))rm(S.R,k);else S.F.push(k)}
+ else if(a=='sf'){rm(S.R,k);if(!S.F.includes(k))S.F.push(k)}
+ else if(a=='sr'){rm(S.F,k);if(!S.R.includes(k))S.R.push(k)}
+ else if(a=='lim')S.lim=+b.dataset.n;
+ else if(a=='sp')S.sp[k]=!S.sp[k];
+ else if(a=='lo')S.lo=S.lo==0?1:S.lo==1?-1:0;
+ else if(a=='slo')S.lo=+b.dataset.v;
+ else if(a=='hs')S.hs=+b.dataset.v;
+ else if(a=='cs'){const v=+b.dataset.v;if(v)S.c[id]=v;else delete S.c[id]}
+ else if(a=='m'){e.stopPropagation();S.man.includes(id)?rm(S.man,id):S.man.push(id)}
+ else if(a=='x')cur=id;
+ else if(a=='cl')cur=null;
+ else if(a=='rf')rf=+b.dataset.v;
+ else if(a=='hide')S.hide=!S.hide;
+ else if(a=='top')S.top=!S.top;
+ else if(a=='tab'){S.tab=+b.dataset.t;scrollTo(0,0)}
+ else if(a=='reset'){if(!rst){rst=1;setTimeout(()=>{rst=0;render()},3000)}else{S={F:[],R:[],lim:S.lim,c:{},man:[],hide:S.hide,tab:1,sp:{},lo:0,hs:0};rst=0;cur=null}}
+ save();render()});
+render();
+</script>
+</body>
+</html>
