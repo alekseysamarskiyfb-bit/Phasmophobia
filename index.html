@@ -6,106 +6,105 @@
 <title>Phasmo Помощник</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Neucha&display=swap">
 <style>
-:root{--bg:#f1f2f6;--cd:#fff;--tx:#16171c;--mu:#6a6e7b;--bd:#dcdee5;--ok:#13a05a;--no:#d83a3a;--ac:#6a4bd6;--wn:#c98a00;--c1:#13a05a;--c2:#ec7b1c;--c3:#2f7de1;--c4:#6a4bd6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0d11;--cd:#171921;--tx:#eceef3;--mu:#8f94a3;--bd:#272a35;--ok:#2fd27f;--no:#ff5c5c;--ac:#9a82ff;--wn:#f0b429;--c1:#2fd27f;--c2:#ff9a44;--c3:#5b9bff;--c4:#a18bff}}
-:root[data-theme="dark"]{--bg:#0c0d11;--cd:#171921;--tx:#eceef3;--mu:#8f94a3;--bd:#272a35;--ok:#2fd27f;--no:#ff5c5c;--ac:#9a82ff;--wn:#f0b429;--c1:#2fd27f;--c2:#ff9a44;--c3:#5b9bff;--c4:#a18bff}
+:root{--bg:#fafafa;--cd:#fff;--tx:#16161a;--mu:#6c6c78;--bd:#e6e6ec;--hv:#f3f3f7;--ac:#e8590c;--ok:#2f9e44;--no:#e03131;--on:#fff;--c1:var(--ac);--c2:var(--ac);--c3:var(--ac);--c4:var(--ac);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0f12;--cd:#17171c;--tx:#ececf0;--mu:#8b8b98;--bd:#262630;--hv:#1f1f27;--ac:#ff8a3d;--ok:#4cc38a;--no:#ff6b6b;--on:#111}}
+:root[data-theme="dark"]{--bg:#0f0f12;--cd:#17171c;--tx:#ececf0;--mu:#8b8b98;--bd:#262630;--hv:#1f1f27;--ac:#ff8a3d;--ok:#4cc38a;--no:#ff6b6b;--on:#111}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:84px}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:80px}
 button{font:inherit;color:inherit;cursor:pointer}
-.w{max-width:820px;margin:0 auto;padding:0 10px}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--bd)}
-.top{display:flex;align-items:center;gap:6px}.top h1{font-size:16px;margin:0;flex:1}
-.pill{background:var(--ac);color:#fff;border-radius:99px;padding:3px 11px;font-weight:800;font-size:14px;border:0}
-.sm{background:var(--cd);border:1px solid var(--bd);border-radius:9px;padding:6px 10px;font-size:13px;font-weight:600}
-.sm.on{background:var(--ac);color:#fff;border-color:var(--ac)}
-.st{background:var(--cd);border:1px solid var(--bd);border-left:5px solid var(--c);border-radius:14px;padding:12px;margin:12px 0}
-.sh{display:flex;align-items:center;gap:9px;margin-bottom:10px}
-.sh .n{width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;flex:none}
-.sh b{font-size:16px}.sh small{display:block;color:var(--mu);font-size:12px;font-weight:400}
-.v{border-radius:14px;padding:11px 12px;margin:12px 0;border:2px solid var(--ac);background:color-mix(in srgb,var(--ac) 9%,var(--cd))}
-.v.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--cd))}.v.bad{border-color:var(--no);background:color-mix(in srgb,var(--no) 10%,var(--cd))}
-.v .big{font-size:20px;font-weight:800}
-.nm{display:inline-block;background:var(--bg);border:1px solid var(--bd);border-radius:99px;padding:2px 10px;margin:3px 3px 0 0;font-size:13px;font-weight:600;cursor:pointer}
+.w{max-width:720px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:12px 0;border-bottom:1px solid var(--bd)}
+.top{display:flex;align-items:center;gap:8px}.top h1{font-size:16px;font-weight:650;margin:0;flex:1;letter-spacing:-.01em}
+.pill{background:var(--cd);color:var(--tx);border:1px solid var(--bd);border-radius:999px;padding:4px 12px;font-weight:600;font-size:13px}
+.sm{background:var(--cd);border:1px solid var(--bd);border-radius:8px;padding:7px 12px;font-size:13px;font-weight:600}
+.sm.on{background:var(--ac);border-color:var(--ac);color:var(--on)}
+.st{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:16px;margin:12px 0}
+.sh{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.sh .n{width:24px;height:24px;border-radius:50%;background:var(--hv)!important;color:var(--mu)!important;border:1px solid var(--bd);display:grid;place-items:center;font-weight:700;font-size:12px;flex:none}
+.sh b{font-size:15px;font-weight:650}.sh small{display:block;color:var(--mu);font-size:12px;font-weight:400}
+.v{border:1px solid var(--bd);background:var(--cd);border-radius:14px;padding:14px 16px;margin:12px 0}
+.v.ok{border-color:var(--ok)}.v.bad{border-color:var(--no)}.v .big{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.nm{display:inline-block;background:var(--hv);border:1px solid var(--bd);border-radius:999px;padding:3px 11px;margin:5px 4px 0 0;font-size:12.5px;font-weight:550;cursor:pointer}
 .nm.out{opacity:.35;text-decoration:line-through}.nm.dm{border-style:dashed;opacity:.6}
 .ex{margin:4px 0 8px;font-size:14px}.mu{color:var(--mu);font-size:13px}
-.bt{border:1px solid var(--bd);background:var(--bg);border-radius:9px;padding:8px 12px;font-size:13px;font-weight:700}
-.bt.y{background:var(--ok);border-color:var(--ok);color:#fff}.bt.n{background:var(--no);border-color:var(--no);color:#fff}
-.sg{display:flex;gap:6px;align-items:center;padding:8px 0;border-top:1px solid var(--bd)}.sg:first-of-type{border-top:0}
-.sg>div{flex:1;min-width:0}.sg small{display:block;color:var(--mu);font-size:12px}
-/* evidence */
-.md{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.md button{background:var(--bg);border:2px solid var(--bd);border-radius:11px;padding:8px 2px;display:flex;flex-direction:column;align-items:center}.md b{font-size:22px}.md small{font-size:11px;color:var(--mu)}.md button.on{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--cd))}
-.mn{margin-top:8px;font-size:13px;color:var(--mu)}
-.eg{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:7px}
-.eb{position:relative;background:var(--bg);border:2px solid var(--bd);border-radius:12px;padding:9px 0 7px;display:flex;flex-direction:column;align-items:center;gap:2px;min-height:76px}
-.eb i{font-style:normal;font-size:28px;line-height:1.1}.eb b{font-size:11px;font-weight:700}.eb em{font-style:normal;font-size:10px;color:var(--mu)}
-.eb u{position:absolute;top:1px;right:6px;text-decoration:none;font-size:15px;font-weight:900}
-.eb.f{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 20%,var(--cd))}.eb.f u{color:var(--ok)}
-.eb.r{border-color:var(--no);background:color-mix(in srgb,var(--no) 14%,var(--cd));opacity:.75}.eb.r u{color:var(--no)}.eb.r b{text-decoration:line-through}
-.stl{margin-top:9px;padding:6px 10px;border-radius:9px;background:var(--bg);border:1px solid var(--bd);font-size:13px;font-weight:600}.stl.ok{border-color:var(--ok);color:var(--ok)}.stl.v{border-color:var(--ac);color:var(--ac)}.stl.bad{border-color:var(--no);color:var(--no)}
-/* speed */
-.hg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.hb{background:var(--bg);border:2px solid var(--bd);border-radius:12px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
-.hb i{font-style:normal;font-size:28px}.hb b{font-size:13px}.hb small{color:var(--mu);font-size:11px}.hb em{font-style:normal;font-size:11px;color:var(--c2);font-weight:700}
-.hb.y{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--cd))}.hb.n{border-color:var(--no);background:color-mix(in srgb,var(--no) 14%,var(--cd))}
-@media(max-width:480px){.hb small{display:none}.hb i{font-size:24px}}
-.seg{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.seg button{flex:1;min-width:52px}.seg button.on{background:var(--c2);border-color:var(--c2);color:#fff}
-.sp{display:flex;flex-direction:column;gap:1px;padding:8px 0;border-top:1px solid var(--bd);font-size:13px;cursor:pointer}.sp:first-of-type{border-top:0}.sp span{color:var(--mu)}
-details>summary{cursor:pointer;font-weight:700;padding:6px 0}
-details.card{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:6px 12px;margin:10px 0}
-/* tests */
-.tt{display:flex;gap:6px;overflow-x:auto;margin:10px 0}.tt .sm{white-space:nowrap}
-.tc{border:2px solid var(--bd);border-radius:13px;padding:10px;margin-bottom:9px;background:var(--cd)}.tc.set{border-color:var(--ok)}
-.tc b{font-size:15px}.tc small{display:block;color:var(--mu);font-size:12px;margin:2px 0 7px}
-.tc .tg{font-size:10px;font-weight:800;border-radius:6px;padding:1px 6px;margin-left:6px;background:var(--bg);color:var(--mu);vertical-align:middle}
-.op{display:flex;flex-direction:column;gap:5px}.op button{text-align:left;background:var(--bg);border:2px solid var(--bd);border-radius:10px;padding:8px 10px;font-size:13px;font-weight:600}
-.op button em{display:block;font-style:normal;font-weight:400;color:var(--c3);font-size:11px}.op button.on{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--cd))}
-/* journal */
-.page{background:radial-gradient(ellipse at center,#efe7d2 0%,#e2d6b8 70%,#d6c79f 100%);color:#17140e;border-radius:12px;padding:16px 6px 14px;box-shadow:inset 0 0 50px rgba(110,80,20,.4),0 2px 10px rgba(0,0,0,.25);font-family:'Neucha','Segoe Print','Comic Sans MS',cursive}
+.bt{border:1px solid var(--bd);background:var(--cd);border-radius:8px;padding:8px 13px;font-size:13px;font-weight:600}
+.bt.y{background:var(--ok);border-color:var(--ok);color:var(--on)}.bt.n{color:var(--no);border-color:color-mix(in srgb,var(--no) 55%,var(--bd))}
+.sg{display:flex;gap:6px;align-items:center;padding:10px 0;border-top:1px solid var(--bd)}.sg:first-of-type{border-top:0;padding-top:0}
+.sg>div{flex:1;min-width:0}.sg small{display:block;color:var(--mu);font-size:12px;margin-top:1px}
+.md{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.md button{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:10px 2px;display:flex;flex-direction:column;align-items:center;gap:1px}
+.md b{font-size:20px;font-weight:700}.md small{font-size:11px;color:var(--mu)}
+.md button.on{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 10%,var(--cd))}.md button.on b{color:var(--ac)}
+.mn{margin-top:10px;font-size:13px;color:var(--mu)}
+.eg{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.eb{position:relative;background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:12px 0 10px;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:82px}
+.eb i{font-style:normal;font-size:26px;line-height:1.1}.eb b{font-size:12px;font-weight:600}.eb em{font-style:normal;font-size:11px;color:var(--mu)}
+.eb u{position:absolute;top:4px;right:8px;text-decoration:none;font-size:14px;font-weight:800}
+.eb.f{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--cd))}.eb.f u,.eb.f em{color:var(--ok)}
+.eb.r{border-color:var(--no);background:color-mix(in srgb,var(--no) 8%,var(--cd));opacity:.75}.eb.r u,.eb.r em{color:var(--no)}.eb.r b{text-decoration:line-through}
+.stl{margin-top:12px;font-size:13px;color:var(--mu)}.stl.ok{color:var(--ok)}.stl.v{color:var(--ac);border:0;padding:0;margin-top:12px;background:none}.stl.bad{color:var(--no)}
+.lk{background:none;border:0;color:var(--ac);font-weight:600;padding:0;font-size:inherit}
+.hg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.hb{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:12px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.hb i{font-style:normal;font-size:24px}.hb b{font-size:12.5px;font-weight:650}.hb small{color:var(--mu);font-size:11px}.hb em{font-style:normal;font-size:11px;color:var(--mu)}
+.hb.y{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--cd))}.hb.y em{color:var(--ok)}.hb.n{border-color:var(--no);background:color-mix(in srgb,var(--no) 8%,var(--cd))}.hb.n em{color:var(--no)}
+@media(max-width:480px){.hb small{display:none}}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.seg button{flex:1;min-width:52px}
+.sr{display:grid;grid-template-columns:100px auto 1fr;gap:2px 10px;align-items:baseline;padding:9px 0;border-top:1px solid var(--bd);font-size:13px;cursor:pointer}.sr:first-of-type{border-top:0}
+.sr b{font-size:14px;font-weight:600}.sr i{font-style:normal;font-weight:700;color:var(--ac);white-space:nowrap;font-variant-numeric:tabular-nums}.sr span{color:var(--mu);grid-column:3}.sr>b+span{grid-column:2/4}.sr.out{opacity:.35}
+@media(max-width:480px){.sr{grid-template-columns:92px 1fr}.sr span{grid-column:1/3}.sr>b+span{grid-column:2}}
+details>summary{cursor:pointer;font-weight:650;padding:10px 0;list-style:none}details>summary::-webkit-details-marker{display:none}
+details>summary::after{content:'+';float:right;color:var(--mu);font-weight:400}details[open]>summary::after{content:'–'}
+details.card{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:2px 16px 8px;margin:12px 0}
+details.card>summary .mu{font-weight:400}
+.tt{display:flex;gap:6px;overflow-x:auto;margin:0 0 12px}.tt .sm{white-space:nowrap}
+.tc{border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:10px;background:var(--cd)}.tc.set{border-color:var(--ok)}.tc.dim{opacity:.5}
+.tc>b{font-size:15px;font-weight:650}.tc .tg{font-size:10px;font-weight:700;border-radius:6px;padding:2px 7px;margin-left:8px;background:var(--hv);color:var(--mu);vertical-align:middle}
+.tc .lb{font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.06em;margin:12px 0 4px}
+.tc ol{margin:0;padding-left:20px;font-size:13.5px}.tc ol li{margin-bottom:2px}.tc .wn{margin:0;font-size:13px;color:var(--mu)}
+.op{display:flex;flex-direction:column;gap:6px}.op button{text-align:left;background:transparent;border:1px solid var(--bd);border-radius:10px;padding:10px 12px;font-size:13.5px;font-weight:600}
+.op button em{display:block;font-style:normal;font-weight:500;color:var(--ac);font-size:12px;margin-top:3px}.op button span{display:block;font-weight:400;font-size:12px;color:var(--mu);margin-top:2px}
+.op button.on{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,var(--cd))}
+.qg{display:flex;flex-wrap:wrap;gap:6px}.qc{border:1px solid var(--bd);background:var(--cd);border-radius:10px;padding:8px 11px;font-size:13px;font-weight:600;text-align:left}.qc small{display:block;font-size:10.5px;color:var(--mu);font-weight:400;margin-top:1px}
+.qc.on{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,var(--cd))}
+.jump{display:flex;gap:6px;margin:12px 0 8px;overflow-x:auto}.jump .sm{white-space:nowrap}
+.cd{padding:12px 0;border-top:1px solid var(--bd)}.cd b{font-size:14px;font-weight:650}.cd small{display:block;color:var(--mu);font-size:12px;margin-bottom:6px}
+.gt{margin:16px 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--mu);font-weight:700}
+.cf{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--bd);font-size:14px}.cf .sm{min-width:92px}.cf .sm.on{background:var(--hv);color:var(--tx);border-color:var(--bd)}
+.hn{margin:12px 2px;font-size:12px;color:var(--mu)}
+.xr{padding:10px 0;border-top:1px solid var(--bd);font-size:13px;cursor:pointer}.xr:first-of-type{border-top:0}.xr b{font-size:14px;font-weight:650}.xr .e{margin-left:8px}.xr div{color:var(--no)}.xr div.m{color:var(--mu)}
+.page{background:#ece4cf;color:#1b1810;border-radius:14px;padding:20px 8px 16px;font-family:'Neucha','Segoe Print','Comic Sans MS',cursive}
 .gg{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 0}
-.gn{position:relative;text-align:center;padding:11px 1px;cursor:pointer;font-size:clamp(15px,4.8vw,26px);line-height:1.15;word-break:break-word}
-.gn span{display:inline-block;padding:1px 6px}.gn small{display:block;font-size:11px;color:#6b5a38;font-family:system-ui,sans-serif}
-.gn.out span{text-decoration:line-through;text-decoration-thickness:3px;opacity:.5}
-.gn.cir span{border:3px solid #17140e;border-radius:50%/65%;padding:1px 12px;background:rgba(95,170,225,.6)}
-.pgx{display:flex;gap:8px;align-items:center;justify-content:space-between;margin:12px 4px 0;font:12px system-ui,sans-serif;color:#5a4a2a;flex-wrap:wrap}
-/* sheet */
+.gn{text-align:center;padding:11px 1px;cursor:pointer;font-size:clamp(15px,4.8vw,26px);line-height:1.15;word-break:break-word}.gn span{display:inline-block;padding:1px 6px}
+.gn.out span{text-decoration:line-through;text-decoration-thickness:3px;opacity:.45}
+.gn.cir span{border:3px solid #1b1810;border-radius:50%/65%;padding:1px 12px;background:rgba(232,89,12,.3)}
+.pgx{margin:14px 6px 0;font:12px system-ui,sans-serif;color:#6b5d3e}
 #sh{position:fixed;inset:0;z-index:20;display:flex;align-items:flex-end;justify-content:center}#sh[hidden]{display:none}
-.bk{position:absolute;inset:0;background:rgba(0,0,0,.55)}
-.pn{position:relative;background:var(--cd);width:100%;max-width:680px;max-height:90vh;overflow:auto;border-radius:18px 18px 0 0;padding:14px 14px calc(18px + env(safe-area-inset-bottom,0px));border-top:5px solid var(--c)}
-.pn h2{margin:0;font-size:24px}.pn h2 small{font-size:13px;color:var(--mu);font-weight:400;margin-left:6px}.hd{display:flex;gap:8px;align-items:center}
-.stp{border-radius:99px;padding:3px 10px;font-size:12px;font-weight:800;color:#fff}.stp.ok{background:var(--ok)}.stp.bad{background:var(--no)}
-.pn section{margin-top:13px}.pn h4{margin:0 0 5px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mu)}
-.pn ul{margin:0;padding-left:18px}.pn li{margin-bottom:3px;font-size:14px}.pn li.r{color:var(--no)}.pn li.g::marker{color:var(--ok)}.pn li.x::marker{color:var(--no)}
-.chips{display:flex;gap:6px;flex-wrap:wrap}.chips span{border:2px solid var(--bd);border-radius:10px;padding:5px 9px;font-size:13px;font-weight:600}
-.chips span.f,.chips span.on{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--cd))}.chips span.r{border-color:var(--no);opacity:.6;text-decoration:line-through}.chips span.off{opacity:.35;text-decoration:line-through}.chips span.fk{border-style:dashed}
-.bar{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}.bar .bt{flex:1;padding:11px;min-width:120px}
-.mx{border:1px solid var(--bd);background:var(--bg);border-radius:9px;width:34px;height:34px}
-nav{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;background:var(--cd);border-top:1px solid var(--bd);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));gap:6px}
-nav button{flex:1;border:0;background:transparent;border-radius:11px;padding:7px 2px;font-size:12px;font-weight:700;color:var(--mu);display:flex;flex-direction:column;align-items:center;gap:1px}
-nav button i{font-style:normal;font-size:20px}nav button.on{background:color-mix(in srgb,var(--ac) 16%,transparent);color:var(--ac)}
-.sr{display:grid;grid-template-columns:96px auto 1fr;gap:2px 8px;align-items:baseline;padding:7px 0;border-top:1px solid var(--bd);font-size:13px;cursor:pointer}.sr:first-of-type{border-top:0}
-.sr b{font-size:14px}.sr i{font-style:normal;font-weight:800;color:var(--c2);white-space:nowrap}.sr span{color:var(--mu);grid-column:3}.sr>b+span{grid-column:2/4}.sr.out{opacity:.35}
-@media(max-width:480px){.sr{grid-template-columns:90px 1fr}.sr span{grid-column:1/3}.sr>b+span{grid-column:2}}
-.qg{display:flex;flex-wrap:wrap;gap:6px}.qc{border:2px solid var(--bd);background:var(--bg);border-radius:10px;padding:6px 9px;font-size:13px;font-weight:600;text-align:left}.qc small{display:block;font-size:10px;color:var(--mu);font-weight:400}.qc.on{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--cd))}
-.cf{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 0;border-top:1px solid var(--bd);font-size:14px}.cf .sm{min-width:86px}.cf .sm.on{background:var(--ok);border-color:var(--ok)}
-.gt{margin:12px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mu);font-weight:800}
-.hn{margin:10px 2px;font-size:12px;color:var(--mu)}.hn button{background:none;border:0;color:var(--ac);font-weight:700;text-decoration:underline;padding:0}
-.xr{padding:8px 0;border-top:1px solid var(--bd);font-size:13px;cursor:pointer}.xr:first-of-type{border-top:0}.xr b{font-size:14px}.xr .e{margin-left:6px}.xr div{color:var(--no)}.xr div.m{color:var(--mu)}
-.cd{padding:8px 0;border-top:1px solid var(--bd)}.cd b{font-size:14px}.cd small{display:block;color:var(--mu);font-size:12px}.cd .seg button{min-width:44px}
-.jump{display:flex;gap:6px;margin:10px 0;overflow-x:auto}.jump .sm{white-space:nowrap}.lk{background:none;border:0;color:var(--ac);font-weight:700;text-decoration:underline;padding:0;font-size:inherit}.tc.dim{opacity:.5}
-nav button{font-size:11px!important}
-.tc .lb{font-size:11px;font-weight:800;color:var(--c3);text-transform:uppercase;letter-spacing:.05em;margin:8px 0 2px}.tc ol{margin:0;padding-left:20px;font-size:13px}.tc ol li{margin-bottom:2px}.tc .wn{margin:0;font-size:13px;color:var(--mu)}.op button span{display:block;font-weight:400;font-size:12px;color:var(--mu);margin-top:2px}
-.ft{color:var(--mu);font-size:12px;margin:14px 0}
+.bk{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+.pn{position:relative;background:var(--cd);width:100%;max-width:640px;max-height:90vh;overflow:auto;border-radius:20px 20px 0 0;padding:18px 18px calc(22px + env(safe-area-inset-bottom,0px));border-top:3px solid var(--c)}
+.pn h2{margin:0;font-size:24px;font-weight:700;letter-spacing:-.01em}.hd{display:flex;gap:10px;align-items:center}
+.stp{border-radius:999px;padding:3px 11px;font-size:12px;font-weight:700;color:var(--on)}.stp.ok{background:var(--ok)}.stp.bad{background:var(--no)}
+.pn section{margin-top:16px}.pn h4{margin:0 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--mu);font-weight:700}
+.pn ul{margin:0;padding-left:18px}.pn li{margin-bottom:4px;font-size:14px}.pn li.r{color:var(--no)}.pn li.g::marker{color:var(--ok)}.pn li.x::marker{color:var(--no)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chips span{border:1px solid var(--bd);border-radius:8px;padding:5px 10px;font-size:13px;font-weight:550}
+.chips span.f,.chips span.on{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,var(--cd))}.chips span.r{border-color:var(--no);opacity:.6;text-decoration:line-through}.chips span.off{opacity:.4;text-decoration:line-through}.chips span.fk{border-style:dashed}
+.bar{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}.bar .bt{flex:1;padding:11px;min-width:120px}
+.mx{border:1px solid var(--bd);background:var(--cd);border-radius:8px;width:34px;height:34px}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;background:color-mix(in srgb,var(--cd) 92%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--bd);padding:0 6px calc(2px + env(safe-area-inset-bottom,0px))}
+nav button{flex:1;border:0;background:transparent;padding:14px 2px 13px;font-size:12.5px;font-weight:600;color:var(--mu);position:relative}
+nav button.on{color:var(--ac)}nav button.on::before{content:'';position:absolute;top:0;left:22%;right:22%;height:2px;border-radius:2px;background:var(--ac)}
+.ft{color:var(--mu);font-size:11.5px;margin:20px 0;text-align:center}
 </style>
 </head>
 <body>
 <div class="w">
-<header><div class="top"><h1>👻 Phasmo Помощник</h1><button class="pill" id="cnt" data-a="tab" data-t="gh"></button><button class="sm" data-a="reset" id="rb">↺ Новый</button></div></header>
+<header><div class="top"><h1>Phasmo Помощник</h1><button class="pill" id="cnt" data-a="tab" data-t="gh"></button><button class="sm" data-a="reset" id="rb">↺ Новый</button></div></header>
 <div id="app"></div>
 <p class="ft">Данные: phasmophobia.su (редакция июля 2026) и GameSpot. Порядок и названия призраков — как в журнале игры. Состояние хранится на этом устройстве.</p>
 </div>
 <div id="sh" hidden><div class="bk" data-a="cl"></div><div class="pn" id="pn"></div></div>
-<nav><button data-a="tab" data-t="ev"><i>🔎</i>Улики</button><button data-a="tab" data-t="st"><i>🏃</i>Скорость и тесты</button><button data-a="tab" data-t="gh"><i>📖</i>Призраки</button><button data-a="tab" data-t="cf"><i>⚙️</i>Настройки</button></nav>
+<nav><button data-a="tab" data-t="ev">Улики</button><button data-a="tab" data-t="st">Скорость и тесты</button><button data-a="tab" data-t="gh">Призраки</button><button data-a="tab" data-t="cf">Настройки</button></nav>
 <script>
 const EV={E:['⚡','ЭМП 5','ЭМП 5'],B:['📻','Радио (Spirit Box)','Радио'],U:['🖐️','Ультрафиолет','УФ'],O:['🔮','Призрачный огонёк','Огонёк'],W:['📖','Запись (Ghost Writing)','Запись'],F:['❄️','Минусовая температура','Минус'],D:['🔴','DOTS','DOTS']};
 // id, имя, улики, гарант.улика, скорость старта {s,n,f}, доп. классы для фильтра, ускоряется от LoS (1/0/null), порог (текст), макс.порог, особенности, как определить, исключает, исключения [группа,текст]
@@ -206,7 +205,7 @@ const gid=id=>G.find(g=>g.id==id);
 // ---- блоки ----
 const BL={all:['Общее',[['strip','Сводка: сколько призраков осталось']]],
  ev:['🔎 Улики',[['grid','Улики: найдено / нет'],['next','Что проверить дальше'],['guar','Гарантированные улики'],['who','У кого какая улика'],['mimic','Mimic и режим улик']]],
- st:['🏃🧪 Скорость и тесты',[['obs','Что увидел на охоте'],['thr','Рассудок в начале охоты'],['quick','Быстрые отметки'],['next','Что проверить дальше'],['list','Тесты подробно'],['slow','🐢 Медленные'],['norm','🚶 Обычные'],['fast','🏃 Быстрые'],['exc','⚠ Исключения'],['thri','Пороги охоты (справка)'],['gallu','Gallu: состояния и соль'],['excl','Что обязательно и что исключает призраков']]],
+ st:['🏃🧪 Скорость и тесты',[['obs','Что увидел на охоте'],['thr','Рассудок в начале охоты'],['quick','Быстрые отметки'],['next','Что проверить дальше'],['list','Тесты подробно'],['slow','Медленные'],['norm','Обычные'],['fast','Быстрые'],['exc','⚠ Исключения'],['thri','Пороги охоты (справка)'],['gallu','Gallu: состояния и соль'],['excl','Что обязательно и что исключает призраков']]],
  gh:['📖 Призраки',[['page','Журнал']]]};
 const REF=['ev.guar','ev.who','ev.mimic','st.slow','st.norm','st.fast','st.exc','st.thri','st.gallu','st.excl'];
 const hidden=(t,b)=>!!S.hid[t+'.'+b];
@@ -282,16 +281,16 @@ const con=t=>[...new Set(t.o.flatMap(o=>o[1].replace(/^-/,'').split(' ')))].filt
 // ---- общие куски ----
 const stp=(n,c,t,s)=>`<div class="sh"><span class="n" style="background:${c}">${n}</span><div><b>${t}</b><small>${s}</small></div></div>`;
 const chip=(g,rem)=>`<span class="nm ${rem&&!rem.includes(g)?'out':''}" data-a="x" data-id="${g.id}">${g.en}</span>`;
-function strip(rem){const n=rem.length;return n==1?`<div class="v ok"><div class="big">✅ ${rem[0].en}</div></div>`:!n?`<div class="v bad"><b>⚠ Не осталось ни одного призрака.</b> Где-то ошибочная отметка: сними последнюю улику, скорость или тест, либо проверь режим в ⚙ Настройках.</div>`:`<div class="v"><b>Подходят ${n} из 30</b>${n<=9?'<br>'+rem.map(g=>chip(g)).join(''):' — отмечай дальше, список сузится'}</div>`}
+function strip(rem){const n=rem.length;return n==1?`<div class="v ok"><div class="big">${rem[0].en}</div><span class="mu">остался один вариант</span></div>`:!n?`<div class="v bad"><b>Не осталось ни одного призрака.</b> Где-то ошибочная отметка: сними последнюю улику, скорость или тест, либо проверь режим в ⚙ Настройках.</div>`:`<div class="v"><b>Подходят ${n} из 30</b>${n<=9?'<br>'+rem.map(g=>chip(g)).join(''):' — отмечай дальше, список сузится'}</div>`}
 // ---- УЛИКИ ----
 function vEv(c){const {rem}=c,L=S.lim,sb=evStat(),t='ev';
  let h=blk('all','strip',strip(rem));
  h+=blk(t,'grid',`<div class="st" style="--c:var(--c1)">${stp(1,'var(--c1)','Улики','тап: ✓ нашёл → ✕ точно нет → сброс')}<div class="eg">${Object.keys(EV).map(k=>{const st=S.F.includes(k)?'f':S.R.includes(k)?'r':'',n=rem.filter(g=>g.ev.includes(k)||(g.id=='mi'&&k=='O')).length;return `<button class="eb ${st}" data-a="e" data-k="${k}"><i>${EV[k][0]}</i><b>${EV[k][2]}</b><em>${st?(st=='f'?'найдена':'нет'):'у '+n+' из '+rem.length}</em><u>${st=='f'?'✓':st=='r'?'✕':''}</u></button>`}).join('')}</div><div class="stl ${sb[0]}">Режим ${L} · ${sb[1]} · <button class="lk" data-a="tab" data-t="cf">изменить режим</button></div></div>`);
  const sg=sugEv(rem);
- if(sg.length)h+=blk(t,'next',`<div class="st" style="--c:var(--c2)">${stp('➡','var(--c2)','Что проверить дальше','улики, которые лучше всего делят список')}`+sg.map(s=>`<div class="sg"><div><b>${EV[s.k][0]} ${EV[s.k][1]}</b><small>✓ найдёшь → останется ${s.hf} · ✕ нет → ${s.hn}${s.k=='O'?' · 🔮 всегда есть у Mimic':''}</small></div><button class="bt y" data-a="sf" data-k="${s.k}">✓ есть</button><button class="bt n" data-a="sr" data-k="${s.k}">✕ нет</button></div>`).join('')+'</div>');
- h+=blk(t,'guar',`<details class="card" open><summary>🔒 Гарантированные улики (режимы 1 и 2)</summary><p class="ex">Когда скрыта часть улик, у этих призраков одна улика есть всегда:</p>${G.filter(g=>g.gu).map(g=>`<div class="sr ${rem.includes(g)?'':'out'}" data-a="x" data-id="${g.id}"><b>${g.en}</b><i>${EV[g.gu][0]}</i><span>${EV[g.gu][1]}</span></div>`).join('')}<p class="mu">Если в контракте 1–2 улики и гарантированной улики призрака среди найденных нет — он отпадает (считается автоматически). При 0 улик гарантий нет. <b>Mimic:</b> 🔮 есть всегда.</p></details>`);
- h+=blk(t,'who',`<details class="card"><summary>📚 У кого какая улика</summary>${Object.keys(EV).map(k=>`<div style="margin:10px 0"><b>${EV[k][0]} ${EV[k][1]}</b><br>${G.filter(g=>g.ev.includes(k)).map(g=>chip(g,rem)).join('')}${k=='O'?'<span class="nm dm" data-a="x" data-id="mi">Mimic — всегда, не улика</span>':''}</div>`).join('')}</details>`);
- h+=blk(t,'mimic',`<details class="card"><summary>🎭 Mimic и режим улик простыми словами</summary><ul><li>Настоящие улики Mimic: 📻 🖐️ ❄️. Но он <b>всегда</b> создаёт ещё 🔮 в любимой комнате — иногда видишь 4 улики.</li><li>Поэтому <b>найдено больше улик, чем разрешает режим → Mimic</b>. Режим 3: четыре улики. Режим 2: три. Режим 1: две. Режим 0: любой 🔮.</li><li>⚠ В видео набор 📻 🖐️ 🔮 назван уникальным для Mimic, но у Kormos в том же видео такой же набор — различай по поведению.</li><li><b>✕</b> при режиме 3 вычёркивает всех, у кого есть эта улика. При 2 и 1 призрак мог её скрыть — вычёркиваются только те, у кого не остаётся достаточно улик.</li></ul></details>`);
+ if(sg.length)h+=blk(t,'next',`<div class="st" style="--c:var(--c2)">${stp('→','var(--c2)','Что проверить дальше','улики, которые лучше всего делят список')}`+sg.map(s=>`<div class="sg"><div><b>${EV[s.k][0]} ${EV[s.k][1]}</b><small>✓ найдёшь → останется ${s.hf} · ✕ нет → ${s.hn}${s.k=='O'?' · 🔮 всегда есть у Mimic':''}</small></div><button class="bt y" data-a="sf" data-k="${s.k}">✓ есть</button><button class="bt n" data-a="sr" data-k="${s.k}">✕ нет</button></div>`).join('')+'</div>');
+ h+=blk(t,'guar',`<details class="card" open><summary>Гарантированные улики (режимы 1 и 2)</summary><p class="ex">Когда скрыта часть улик, у этих призраков одна улика есть всегда:</p>${G.filter(g=>g.gu).map(g=>`<div class="sr ${rem.includes(g)?'':'out'}" data-a="x" data-id="${g.id}"><b>${g.en}</b><i>${EV[g.gu][0]}</i><span>${EV[g.gu][1]}</span></div>`).join('')}<p class="mu">Если в контракте 1–2 улики и гарантированной улики призрака среди найденных нет — он отпадает (считается автоматически). При 0 улик гарантий нет. <b>Mimic:</b> 🔮 есть всегда.</p></details>`);
+ h+=blk(t,'who',`<details class="card"><summary>У кого какая улика</summary>${Object.keys(EV).map(k=>`<div style="margin:10px 0"><b>${EV[k][0]} ${EV[k][1]}</b><br>${G.filter(g=>g.ev.includes(k)).map(g=>chip(g,rem)).join('')}${k=='O'?'<span class="nm dm" data-a="x" data-id="mi">Mimic — всегда, не улика</span>':''}</div>`).join('')}</details>`);
+ h+=blk(t,'mimic',`<details class="card"><summary>Mimic и режим улик простыми словами</summary><ul><li>Настоящие улики Mimic: 📻 🖐️ ❄️. Но он <b>всегда</b> создаёт ещё 🔮 в любимой комнате — иногда видишь 4 улики.</li><li>Поэтому <b>найдено больше улик, чем разрешает режим → Mimic</b>. Режим 3: четыре улики. Режим 2: три. Режим 1: две. Режим 0: любой 🔮.</li><li>⚠ В видео набор 📻 🖐️ 🔮 назван уникальным для Mimic, но у Kormos в том же видео такой же набор — различай по поведению.</li><li><b>✕</b> при режиме 3 вычёркивает всех, у кого есть эта улика. При 2 и 1 призрак мог её скрыть — вычёркиваются только те, у кого не остаётся достаточно улик.</li></ul></details>`);
  return h+hnote(t)}
 // ---- СКОРОСТЬ И ТЕСТЫ ----
 const Q=[['gen',0,'♂ Мужской'],['ev',0,'Облачко'],['ev',1,'Движущийся призрак'],['sg',0,'Поющий призрак'],['br',0,'Выключил щиток'],['br',1,'Включил щиток'],['gr',0,'Сменил любимую комнату'],['sa',0,'Соль осталась целой'],['sa',1,'Затоптал соль'],['ph',0,'Виден на фото'],['li',0,'Свет выключился сам'],['li',1,'Сам включил свет / ТВ'],['yd',0,'Дверь наполовину'],['sy',0,'Дым: вышел из комнаты <90 с'],['sh',0,'Действие при игроке в комнате'],['sm',0,'Дым: охота <90 с'],['sm',1,'Дым: охота <180 с'],['sm',2,'Дым: охоты нет 180 с'],['mw',0,'Слепота 7 с'],['mw',1,'Слепота 4 или 6 с'],['mw',2,'Слепота 5 с']];
@@ -299,13 +298,13 @@ const tg=id=>T.find(t=>t.id==id);
 function vSt(c){const {rem}=c,n=rem.length,t='st';
  const can=k=>rem.filter(g=>cls(g).includes(k)).length;
  let h=blk('all','strip',strip(rem));
- h+=`<div class="jump"><button class="sm" data-a="go" data-id="a-obs">🏃 Наблюдения</button><button class="sm" data-a="go" data-id="a-tests">🧪 Тесты</button><button class="sm" data-a="go" data-id="a-ref">📚 Справка</button></div><p class="mu" style="margin:0 2px 4px">Условия: рассудок ${S.cd.san>=50?'45%+':S.cd.san+'%'}, щиток ${S.cd.br=='on'?'включён':'выключен'} · <button class="lk" data-a="tab" data-t="cf">изменить</button> · Охота всегда начинается в другой комнате или на другом этаже.</p><div id="a-obs"></div>`;
+ h+=`<div class="jump"><button class="sm" data-a="go" data-id="a-obs">Наблюдения</button><button class="sm" data-a="go" data-id="a-tests">Тесты</button><button class="sm" data-a="go" data-id="a-ref">Справка</button></div><p class="mu" style="margin:0 2px 4px">Условия: рассудок ${S.cd.san>=50?'45%+':S.cd.san+'%'}, щиток ${S.cd.br=='on'?'включён':'выключен'} · <button class="lk" data-a="tab" data-t="cf">изменить</button> · Охота всегда начинается в другой комнате или на другом этаже.</p><div id="a-obs"></div>`;
  h+=blk(t,'obs',`<div class="st" style="--c:var(--c2)">${stp(1,'var(--c2)','С какой скоростью призрак начал охоту','отметь, что увидел (можно несколько)')}<div class="hg">`+CL.map(c=>{const on=S.sp[c[0]];return `<button class="hb ${on?'y':''}" data-a="sp" data-k="${c[0]}"><i>${c[1]}</i><b>${c[2]}</b><small>${c[3]}</small><em>${on?'✓ видел':'подходят '+can(c[0])}</em></button>`}).join('')+`<button class="hb ${S.lo>0?'y':S.lo<0?'n':''}" data-a="lo"><i>⏩</i><b>Ускорялся</b><small>от зрительного контакта</small><em>${S.lo>0?'✓ да':S.lo<0?'✕ нет':'тап'}</em></button></div><p class="mu" style="margin:8px 0 0">⏩ — призрак набирает скорость, пока видит тебя. «Нет» ставь, только если он точно видел тебя долго. Не ускоряются: ${G.filter(g=>g.los===0).map(g=>g.en).join(', ')}.</p></div>`);
  h+=blk(t,'thr',`<div class="st" style="--c:var(--c2)">${stp(2,'var(--c2)','Рассудок в начале охоты','средний рассудок команды, когда началась охота')}<p class="ex">Охота началась, когда рассудок был <b>выше</b>:</p><div class="seg"><button class="sm ${!S.hs?'on':''}" data-a="hs" data-v="0">не знаю</button>${[50,60,65,70,75,80].map(x=>`<button class="sm ${S.hs==x?'on':''}" data-a="hs" data-v="${x}">${x}%</button>`).join('')}</div></div>`);
  h+=`<div id="a-tests"></div>`;
- h+=blk(t,'quick',`<div class="st" style="--c:var(--c3)">${stp('⚡','var(--c3)','Быстрые отметки','нажми, если это произошло — призраки вычеркнутся сами')}<div class="qg">${Q.map(q=>{const te=tg(q[0]),sel=S.t[q[0]]===q[1];return `<button class="qc ${sel?'on':''}" data-a="t" data-id="${q[0]}" data-i="${q[1]}">${sel?'✓ ':''}${q[2]}<small>${sel?'учтено':eff(te.o[q[1]][1],rem)}</small></button>`}).join('')}</div></div>`);
+ h+=blk(t,'quick',`<div class="st" style="--c:var(--c3)">${stp('•','var(--c3)','Быстрые отметки','нажми, если это произошло — призраки вычеркнутся сами')}<div class="qg">${Q.map(q=>{const te=tg(q[0]),sel=S.t[q[0]]===q[1];return `<button class="qc ${sel?'on':''}" data-a="t" data-id="${q[0]}" data-i="${q[1]}">${sel?'✓ ':''}${q[2]}<small>${sel?'учтено':eff(te.o[q[1]][1],rem)}</small></button>`}).join('')}</div></div>`);
  const sgs=sugSp(rem);
- if(sgs.length)h+=blk(t,'next',`<div class="st" style="--c:var(--c2)">${stp('➡','var(--c2)','Что проверить дальше','самые полезные наблюдения')}`+sgs.map(s=>{
+ if(sgs.length)h+=blk(t,'next',`<div class="st" style="--c:var(--c2)">${stp('→','var(--c2)','Что проверить дальше','самые полезные наблюдения')}`+sgs.map(s=>{
   if(s.t=='sp'){const c=CL.find(x=>x[0]==s.k);return `<div class="sg"><div><b>${c[1]} ${c[2]} скорость</b><small>возможна у ${s.h} из ${n}. Видел такую — отметь</small></div><button class="bt y" data-a="sp" data-k="${s.k}">✓ видел</button></div>`}
   if(s.t=='lo')return `<div class="sg"><div><b>⏩ Ускорялся, пока видел тебя?</b><small>ускоряются ${s.h} из ${n}</small></div><button class="bt y" data-a="slo" data-v="1">✓ да</button><button class="bt n" data-a="slo" data-v="-1">✕ нет</button></div>`;
   return `<div class="sg"><div><b>Охота при рассудке выше ${s.k}%?</b><small>могут начать так ${s.h} из ${n}</small></div><button class="bt y" data-a="hs" data-v="${s.k}">✓ да</button></div>`}).join('')+'</div>');
@@ -315,18 +314,18 @@ function vSt(c){const {rem}=c,n=rem.length,t='st';
  h+=blk(t,'list',`<div class="st" style="--c:var(--c3)">${stp(2,'var(--c3)','Тесты','показаны только те, что ещё влияют на оставшихся призраков')}<div class="tt">${tabs.map(x=>`<button class="sm ${ft==x[0]?'on':''}" data-a="ft" data-v="${x[0]}">${x[1]}</button>`).join('')}</div>`+(list.length?list.map(x=>{const sel=S.t[x.id],cc=con(x).map(gid).filter(g=>rem.includes(g)),dead=!cc.length;return `<div class="tc ${sel!=null?'set':''} ${dead&&sel==null?'dim':''}"><b>${x.l}</b>${x.f?'<span class="tg">⚡ быстро</span>':''}${x.g=='hunt'?'<span class="tg">⚠ на охоте</span>':''}<div class="lb">Что делать</div><ol>${x.s.map(z=>`<li>${z}</li>`).join('')}</ol><div class="lb">Когда работает</div><p class="wn">${x.w}</p><div class="lb">Что увидел</div><div class="op">${x.o.map((o,i)=>`<button class="${sel==i?'on':''}" data-a="t" data-id="${x.id}" data-i="${i}">${sel==i?'✓ ':''}${o[0]}<em>${sel==i?'нажми, чтобы снять':eff(o[1],rem)}</em><span>${o[2]}</span></button>`).join('')}</div>${dead&&sel==null?'<small style="margin:6px 0 0">Уже неактуально: все связанные призраки вычеркнуты</small>':''}</div>`}).join(''):`<p class="mu">${ft=='use'?'Сейчас ни один тест не влияет на оставшихся — добавь улики или скорость.':'Здесь пока пусто.'}</p>`)+`</div>`);
  h+=`<div id="a-ref"></div>`;
  const row=(g,k)=>{const o=(opts(g)||[]).filter(x=>clv(x[0])==k);return o.map(x=>`<div class="sr ${rem.includes(g)?'':'out'}" data-a="x" data-id="${g.id}"><b>${g.en}</b><i>${fmt(x[0])}</i>${x[1]?`<span>${x[1]}</span>`:''}</div>`).join('')};
- const catT={s:['slow','🐢 Медленные','меньше 1.7 м/с'],n:['norm','🚶 Обычные','ровно 1.7 м/с'],f:['fast','🏃 Быстрые','больше 1.7 м/с']};
+ const catT={s:['slow','Медленные','меньше 1.7 м/с'],n:['norm','Обычные','ровно 1.7 м/с'],f:['fast','Быстрые','больше 1.7 м/с']};
  ['s','n','f'].forEach(k=>{const list=G.filter(g=>g.id!='mi'&&g.id!='ha'&&cls(g).includes(k));h+=blk(t,catT[k][0],`<details class="card" open><summary>${catT[k][1]} <span class="mu">(${catT[k][2]}) · ${list.length}</span></summary>${list.map(g=>row(g,k)).join('')}${k=='s'?'<p class="mu">Категория — по скорости на <b>старте</b> первой охоты (она начинается в другой комнате или на другом этаже). Всё, что меняется потом, — в «Исключениях». Mimic и Hantu в категориях не стоят.</p>':''}</details>`)});
- const exg={a:['⛔ Нет ускорения от зрительного контакта','скорость не растёт, пока видит тебя'],b:['🔀 Меняют скорость во время охоты','когда и почему'],c:['⭐ Особые случаи','']};
- h+=blk(t,'exc',`<details class="card" open><summary>⚠ Исключения <span class="mu">(не как все)</span></summary>`+['a','b','c'].map(k=>{const l=G.filter(g=>g.ex.some(e=>e[0]==k));return `<div style="margin:8px 0"><b>${exg[k][0]}</b>${exg[k][1]?` <span class="mu">— ${exg[k][1]}</span>`:''}${l.map(g=>g.ex.filter(e=>e[0]==k).map(e=>`<div class="sr ${rem.includes(g)?'':'out'}" data-a="x" data-id="${g.id}"><b>${g.en}</b><span>${e[1]}</span></div>`).join('')).join('')}</div>`}).join('')+`</details>`);
+ const exg={a:['Нет ускорения от зрительного контакта','скорость не растёт, пока видит тебя'],b:['Меняют скорость во время охоты','когда и почему'],c:['Особые случаи','']};
+ h+=blk(t,'exc',`<details class="card" open><summary>Исключения <span class="mu">(не как все)</span></summary>`+['a','b','c'].map(k=>{const l=G.filter(g=>g.ex.some(e=>e[0]==k));return `<div style="margin:8px 0"><b>${exg[k][0]}</b>${exg[k][1]?` <span class="mu">— ${exg[k][1]}</span>`:''}${l.map(g=>g.ex.filter(e=>e[0]==k).map(e=>`<div class="sr ${rem.includes(g)?'':'out'}" data-a="x" data-id="${g.id}"><b>${g.en}</b><span>${e[1]}</span></div>`).join('')).join('')}</div>`}).join('')+`</details>`);
  const thr=(tt,arr)=>`<div style="margin:8px 0"><b>${tt}</b>${arr.map(a=>{const g=gid(a[0]);return `<div class="sr ${rem.includes(g)?'':'out'}" data-a="x" data-id="${g.id}"><b>${g.en}</b><i>${a[1]}</i><span>${a[2]}</span></div>`}).join('')}</div>`;
- h+=blk(t,'thri',`<details class="card"><summary>🧠 Пороги охоты (рассудок команды)</summary><p class="ex">У каждого призрака есть число — <b>порог рассудка</b>. Призрак может начать охоту, только когда <b>средний рассудок команды ниже этого числа</b>. У большинства порог 50%.</p>`+
+ h+=blk(t,'thri',`<details class="card"><summary>Пороги охоты (рассудок команды)</summary><p class="ex">У каждого призрака есть число — <b>порог рассудка</b>. Призрак может начать охоту, только когда <b>средний рассудок команды ниже этого числа</b>. У большинства порог 50%.</p>`+
  thr('Любой рассудок',[['de','любой','способность; обычный порог 70%'],['oy','любой','после каждого 3-го потушенного огня; обычно 60%'],['ba','цель','считается по рассудку цели (50%), а не команды']])+
  thr('Охотятся раньше (выше 50%)',[['yo','80%','если в комнате с ним говорят'],['th','75%','самый молодой; с возрастом падает до 15%'],['ko','70%','если в комнате с ним спринтует игрок'],['da','65%','ближайший игрок в 10 м идёт'],['om','65%','агрессивное состояние'],['ra','65%','рядом включённая электроника'],['ma','60%','выключатель в комнате призрака выключен'],['ga','60%','яростное состояние']])+
  `<div style="margin:8px 0"><b>Ровно 50% (все остальные)</b><br>${G.filter(g=>g.maxT==50&&g.thr=='50%').map(g=>chip(g,rem)).join('')}</div>`+
  thr('Охотятся позже (ниже 50%)',[['da','45%','ближайший игрок в 10 м стоит'],['dg','40%',''],['ga','40%','слабое состояние'],['ma','40%','выключатель в комнате включён'],['oy','40%','рядом горит огонь'],['sh','35%',''],['th','15%','самый старый'],['om','10%','спокойное состояние']])+`</details>`);
- h+=blk(t,'gallu',`<details class="card"><summary>🧂 Gallu: состояния и соль (коротко)</summary><ul>${MECH.ga.map(x=>`<li>${x}</li>`).join('')}</ul></details>`);
- h+=blk(t,'excl',`<details class="card"><summary>📋 Что обязательно и что исключает призраков</summary><p class="mu">🔒 — улика гарантирована при режимах 1–2. Красным — после этого призрак вычёркивается.</p>${G.map(g=>`<div class="xr" data-a="x" data-id="${g.id}"><b>${g.en}</b> <span class="e">${[...g.ev].map(k=>EV[k][0]+(g.gu==k?'🔒':'')).join(' ')}</span>${g.excl.map(x=>`<div>✕ ${x}</div>`).join('')||'<div class="m">— исключающих признаков в видео нет</div>'}</div>`).join('')}</details>`);
+ h+=blk(t,'gallu',`<details class="card"><summary>Gallu: состояния и соль (коротко)</summary><ul>${MECH.ga.map(x=>`<li>${x}</li>`).join('')}</ul></details>`);
+ h+=blk(t,'excl',`<details class="card"><summary>Что обязательно и что исключает призраков</summary><p class="mu">🔒 — улика гарантирована при режимах 1–2. Красным — после этого призрак вычёркивается.</p>${G.map(g=>`<div class="xr" data-a="x" data-id="${g.id}"><b>${g.en}</b> <span class="e">${[...g.ev].map(k=>EV[k][0]+(g.gu==k?'🔒':'')).join(' ')}</span>${g.excl.map(x=>`<div>✕ ${x}</div>`).join('')||'<div class="m">— исключающих признаков в видео нет</div>'}</div>`).join('')}</details>`);
  return h+hnote(t)}
 // ---- ПРИЗРАКИ ----
 function vGh(c){const {rem,rows}=c,t='gh';
